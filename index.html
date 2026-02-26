@@ -17,10 +17,6 @@ h1 {
     color: orange;
 }
 
-h2 {
-    margin-top: 15px;
-}
-
 .classe-btn {
     background: linear-gradient(45deg, #ff9900, #ffb84d);
     border: none;
@@ -65,17 +61,17 @@ h2 {
     font-weight: bold;
 }
 
-/* 🔥 NOVO CARD DE DETALHES */
+/* CARD DE DETALHES */
 .detalhes-card {
     margin-top: 40px;
-    background: rgba(27, 31, 58, 0.9);
+    background: rgba(27, 31, 58, 0.95);
     padding: 25px;
     border-radius: 25px;
-    max-width: 400px;
+    max-width: 420px;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 0 25px rgba(255, 165, 0, 0.3);
-    animation: aparecer 0.5s ease forwards;
+    animation: aparecer 0.4s ease forwards;
 }
 
 .detalhes-card img {
@@ -86,7 +82,7 @@ h2 {
 
 .info {
     text-align: left;
-    margin-top: 20px;
+    margin-top: 15px;
     line-height: 1.6;
 }
 
@@ -94,18 +90,35 @@ h2 {
     color: #ffb84d;
 }
 
-/* Animação */
+.skill {
+    background: rgba(255,255,255,0.05);
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 10px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: rgba(255,165,0,0.1);
+    transform: translateX(4px);
+}
+
+.skill-title {
+    color: #ffb84d;
+    font-weight: bold;
+}
+
 @keyframes aparecer {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
 </style>
 </head>
 
@@ -133,15 +146,43 @@ function mostrarLutador() {
 function abrirFreya() {
     document.getElementById("detalhes").innerHTML = `
         <div class="detalhes-card">
+
             <img src="freya-detalhe.jpg">
+
             <h2>Freya</h2>
+
             <div class="info">
                 <p><b>Classe:</b> Lutador</p>
                 <p><b>Rota:</b> EXP Lane</p>
-                <p><b>Lore:</b> Freya é uma guerreira abençoada pelos deuses, conhecida por sua força e resistência em batalha.</p>
             </div>
+
+            <hr style="margin:20px 0; opacity:0.2;">
+
+            <h3>🔥 Habilidades</h3>
+
+            <div class="skill">
+                <div class="skill-title">Passiva – Poder da Valquíria</div>
+                <p>Freya ganha Orbes Sagradas ao atacar. Cada Orbe fortalece suas habilidades.</p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-title">Skill 1 – Salto da Valquíria</div>
+                <p>Freya salta até o alvo causando dano físico e reduzindo a defesa do inimigo.</p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-title">Skill 2 – Golpes Sagrados</div>
+                <p>Freya desfere uma sequência de ataques poderosos causando dano em área.</p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-title">Ultimate – Ira Divina</div>
+                <p>Freya ativa seu poder máximo aumentando dano e velocidade de ataque.</p>
+            </div>
+
             <br>
             <button class="classe-btn" onclick="fecharDetalhes()">← Voltar</button>
+
         </div>
     `;
 }
