@@ -8,7 +8,7 @@
 body {
     background: linear-gradient(to bottom, #070b1f, #0f1433);
     color: white;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
 }
@@ -17,14 +17,23 @@ h1 {
     color: orange;
 }
 
+h2 {
+    margin-top: 15px;
+}
+
 .classe-btn {
-    background: orange;
+    background: linear-gradient(45deg, #ff9900, #ffb84d);
     border: none;
-    padding: 12px 20px;
-    border-radius: 12px;
+    padding: 12px 22px;
+    border-radius: 14px;
     font-weight: bold;
     margin: 6px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.classe-btn:hover {
+    transform: scale(1.05);
 }
 
 .hero-container {
@@ -56,15 +65,36 @@ h1 {
     font-weight: bold;
 }
 
-#detalhes {
+/* 🔥 NOVO CARD DE DETALHES */
+.detalhes-card {
     margin-top: 40px;
-}
-
-/* 🔥 ANIMAÇÃO */
-.animar {
+    background: rgba(27, 31, 58, 0.9);
+    padding: 25px;
+    border-radius: 25px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 25px rgba(255, 165, 0, 0.3);
     animation: aparecer 0.5s ease forwards;
 }
 
+.detalhes-card img {
+    width: 75%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
+}
+
+.info {
+    text-align: left;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.info b {
+    color: #ffb84d;
+}
+
+/* Animação */
 @keyframes aparecer {
     from {
         opacity: 0;
@@ -75,6 +105,7 @@ h1 {
         transform: translateY(0);
     }
 }
+
 </style>
 </head>
 
@@ -101,12 +132,14 @@ function mostrarLutador() {
 
 function abrirFreya() {
     document.getElementById("detalhes").innerHTML = `
-        <div class="animar" style="background:#1b1f3a;padding:20px;border-radius:20px;">
-            <img src="freya-detalhe.jpg" style="width:70%;border-radius:20px;">
+        <div class="detalhes-card">
+            <img src="freya-detalhe.jpg">
             <h2>Freya</h2>
-            <p><b>Classe:</b> Lutador</p>
-            <p><b>Rota:</b> EXP Lane</p>
-            <p><b>Lore:</b> Freya é uma guerreira abençoada pelos deuses, conhecida por sua força e resistência em batalha.</p>
+            <div class="info">
+                <p><b>Classe:</b> Lutador</p>
+                <p><b>Rota:</b> EXP Lane</p>
+                <p><b>Lore:</b> Freya é uma guerreira abençoada pelos deuses, conhecida por sua força e resistência em batalha.</p>
+            </div>
             <br>
             <button class="classe-btn" onclick="fecharDetalhes()">← Voltar</button>
         </div>
