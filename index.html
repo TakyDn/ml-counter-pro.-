@@ -59,6 +59,22 @@ h1 {
 #detalhes {
     margin-top: 40px;
 }
+
+/* 🔥 ANIMAÇÃO */
+.animar {
+    animation: aparecer 0.5s ease forwards;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 </style>
 </head>
 
@@ -85,7 +101,7 @@ function mostrarLutador() {
 
 function abrirFreya() {
     document.getElementById("detalhes").innerHTML = `
-        <div style="background:#1b1f3a;padding:20px;border-radius:20px;">
+        <div class="animar" style="background:#1b1f3a;padding:20px;border-radius:20px;">
             <img src="freya-detalhe.jpg" style="width:70%;border-radius:20px;">
             <h2>Freya</h2>
             <p><b>Classe:</b> Lutador</p>
