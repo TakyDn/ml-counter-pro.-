@@ -7,7 +7,7 @@
 
 <style>
 body {
-    background: linear-gradient(180deg,#0f0f1a,#090912);
+    background: linear-gradient(180deg, #0f0f1a, #090912);
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -38,30 +38,19 @@ button:hover {
     transform: scale(1.05);
 }
 
-.herois {
-    margin-top: 30px;
-}
-
-.card-heroi {
-    background: #1c1c2e;
-    padding: 20px;
-    margin: 15px;
-    border-radius: 15px;
-    display: inline-block;
-    width: 140px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.card-heroi:hover {
-    transform: scale(1.05);
-}
-
 .card-detalhe {
     background: #1c1c2e;
     padding: 25px;
     margin-top: 30px;
     border-radius: 15px;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    margin: 15px 0;
+    box-shadow: 0 0 20px rgba(255,165,0,0.6);
 }
 </style>
 </head>
@@ -72,84 +61,26 @@ button:hover {
 <h2>Escolha uma Classe</h2>
 
 <div class="container">
-    <button onclick="mostrarClasse('tanque')">🛡️ Tanque</button>
-    <button onclick="mostrarClasse('lutador')">⚔️ Lutador</button>
-    <button onclick="mostrarClasse('mago')">🧙 Mago</button>
-    <button onclick="mostrarClasse('assassino')">🗡️ Assassino</button>
-    <button onclick="mostrarClasse('atirador')">🎯 Atirador</button>
-    <button onclick="mostrarClasse('suporte')">💚 Suporte</button>
+    <button>🛡️ Tanque</button>
+    <button>⚔️ Lutador</button>
+    <button>🧙 Mago</button>
+    <button>🗡️ Assassino</button>
+    <button>🎯 Atirador</button>
+    <button>💚 Suporte</button>
 </div>
 
-<div class="herois" id="areaHerois"></div>
+<div class="card-detalhe">
+    <h2>Freya</h2>
 
-<script>
+    <!-- IMAGEM ADICIONADA AQUI -->
+    <img src="freya.jpg" alt="Freya MLBB" class="hero-img">
 
-const heroisDetalhes = {
-    "Freya": {
-        classe: "Lutador",
-        rota: "EXP Lane",
-        lore: "Freya é uma guerreira abençoada pelos deuses, conhecida por sua força e resistência em batalha."
-    }
-};
+    <p><strong>Classe:</strong> Lutador</p>
+    <p><strong>Rota:</strong> EXP Lane</p>
+    <p><strong>Lore:</strong> Freya é uma guerreira abençoada pelos deuses, conhecida por sua força e resistência em batalha.</p>
 
-const bancoHerois = {
-    tanque: ["Tigreal", "Khufra", "Atlas"],
-    lutador: ["Freya", "Aldous", "Leomord"],
-    mago: ["Valir", "Lunox", "Kagura"],
-    assassino: ["Gusion", "Hayabusa", "Helcurt"],
-    atirador: ["Layla", "Beatrix", "Clint"],
-    suporte: ["Angela", "Rafaela", "Estes"]
-};
-
-function mostrarClasse(classe) {
-    const area = document.getElementById("areaHerois");
-    area.innerHTML = "";
-
-    bancoHerois[classe].forEach(function(nome) {
-        const card = document.createElement("div");
-        card.className = "card-heroi";
-        card.innerText = nome;
-        card.onclick = function() {
-            mostrarHeroi(nome);
-        };
-        area.appendChild(card);
-    });
-}
-
-function mostrarHeroi(nome) {
-    const area = document.getElementById("areaHerois");
-
-    const dados = heroisDetalhes[nome];
-
-    if (!dados) {
-        area.innerHTML = `
-            <div class="card-detalhe">
-                <h2>${nome}</h2>
-                <p>Informações ainda não adicionadas.</p>
-                <br>
-                <button onclick="voltar()">⬅ Voltar</button>
-            </div>
-        `;
-        return;
-    }
-
-    area.innerHTML = `
-        <div class="card-detalhe">
-            <h2>${nome}</h2>
-            <p><strong>Classe:</strong> ${dados.classe}</p>
-            <p><strong>Rota:</strong> ${dados.rota}</p>
-            <p><strong>Lore:</strong> ${dados.lore}</p>
-            <br>
-            <button onclick="voltar()">⬅ Voltar</button>
-        </div>
-    `;
-}
-
-function voltar() {
-    document.getElementById("areaHerois").innerHTML = "";
-}
-
-</script>
+    <button onclick="location.reload()">← Voltar</button>
+</div>
 
 </body>
 </html>
