@@ -7,7 +7,7 @@
 
 <style>
 body {
-    background: linear-gradient(180deg, #0f0f1a, #090912);
+    background: linear-gradient(180deg,#0f0f1a,#090912);
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -15,13 +15,7 @@ body {
     padding: 20px;
 }
 
-h1 {
-    color: orange;
-}
-
-.container {
-    margin-top: 30px;
-}
+h1 { color: orange; }
 
 button {
     background: orange;
@@ -34,8 +28,16 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
-    transform: scale(1.05);
+button:hover { transform: scale(1.05); }
+
+.card-heroi {
+    background: #1c1c2e;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 140px;
+    cursor: pointer;
 }
 
 .card-detalhe {
@@ -45,12 +47,12 @@ button:hover {
     border-radius: 15px;
 }
 
-.hero-img {
+.imagem-heroi {
     width: 100%;
     max-width: 300px;
     border-radius: 15px;
-    margin: 15px 0;
-    box-shadow: 0 0 20px rgba(255,165,0,0.6);
+    margin-bottom: 20px;
+    box-shadow: 0 0 25px orange;
 }
 </style>
 </head>
@@ -60,27 +62,32 @@ button:hover {
 <h1>ML COUNTER PRO</h1>
 <h2>Escolha uma Classe</h2>
 
-<div class="container">
-    <button>🛡️ Tanque</button>
-    <button>⚔️ Lutador</button>
-    <button>🧙 Mago</button>
-    <button>🗡️ Assassino</button>
-    <button>🎯 Atirador</button>
-    <button>💚 Suporte</button>
+<div>
+    <button onclick="mostrarClasse('tanque')">🛡️ Tanque</button>
+    <button onclick="mostrarClasse('lutador')">⚔️ Lutador</button>
+    <button onclick="mostrarClasse('mago')">🧙 Mago</button>
+    <button onclick="mostrarClasse('assassino')">🗡️ Assassino</button>
+    <button onclick="mostrarClasse('atirador')">🎯 Atirador</button>
+    <button onclick="mostrarClasse('suporte')">💚 Suporte</button>
 </div>
 
-<div class="card-detalhe">
-    <h2>Freya</h2>
+<div id="areaHerois"></div>
 
-    <!-- IMAGEM ADICIONADA AQUI -->
-    <img src="freya.jpg" alt="Freya MLBB" class="hero-img">
+<script>
 
-    <p><strong>Classe:</strong> Lutador</p>
-    <p><strong>Rota:</strong> EXP Lane</p>
-    <p><strong>Lore:</strong> Freya é uma guerreira abençoada pelos deuses, conhecida por sua força e resistência em batalha.</p>
+const heroisDetalhes = {
+    "Freya": {
+        classe: "Lutador",
+        rota: "EXP Lane",
+        lore: "Freya é uma guerreira abençoada pelos deuses, conhecida por sua força e resistência em batalha.",
+        imagem: "imagens/freya.jpg" // use sua imagem enviada
+    }
+};
 
-    <button onclick="location.reload()">← Voltar</button>
-</div>
-
-</body>
-</html>
+const bancoHerois = {
+    tanque: ["Tigreal", "Khufra", "Atlas"],
+    lutador: ["Freya", "Aldous", "Leomord"],
+    mago: ["Valir", "Lunox", "Kagura"],
+    assassino: ["Gusion", "Hayabusa", "Helcurt"],
+    atirador: ["Layla", "Beatrix", "Clint"],
+    suporte: ["Angela", "Rafaela", "Est
