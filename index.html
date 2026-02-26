@@ -7,7 +7,7 @@
 
 <style>
 body {
-    background-color: #0f0f1a;
+    background: linear-gradient(180deg,#0f0f1a,#090912);
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -31,6 +31,11 @@ button {
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 .herois {
@@ -45,11 +50,16 @@ button {
     display: inline-block;
     width: 140px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-heroi:hover {
+    transform: scale(1.05);
 }
 
 .card-detalhe {
     background: #1c1c2e;
-    padding: 20px;
+    padding: 25px;
     margin-top: 30px;
     border-radius: 15px;
 }
@@ -59,7 +69,6 @@ button {
 <body>
 
 <h1>ML COUNTER PRO</h1>
-
 <h2>Escolha uma Classe</h2>
 
 <div class="container">
@@ -74,6 +83,14 @@ button {
 <div class="herois" id="areaHerois"></div>
 
 <script>
+
+const heroisDetalhes = {
+    "Freya": {
+        classe: "Lutador",
+        rota: "EXP Lane",
+        lore: "Freya é uma guerreira abençoada pelos deuses, conhecida por sua força e resistência em batalha."
+    }
+};
 
 const bancoHerois = {
     tanque: ["Tigreal", "Khufra", "Atlas"],
@@ -102,20 +119,30 @@ function mostrarClasse(classe) {
 function mostrarHeroi(nome) {
     const area = document.getElementById("areaHerois");
 
-    area.innerHTML = "";
+    const dados = heroisDetalhes[nome];
 
-    const detalhe = document.createElement("div");
-    detalhe.className = "card-detalhe";
-    detalhe.innerHTML = `
-        <h2>${nome}</h2>
-        <p><strong>Classe:</strong> Em construção</p>
-        <p><strong>Rota:</strong> Em construção</p>
-        <p><strong>Lore:</strong> Em construção</p>
-        <br>
-        <button onclick="voltar()">⬅ Voltar</button>
+    if (!dados) {
+        area.innerHTML = `
+            <div class="card-detalhe">
+                <h2>${nome}</h2>
+                <p>Informações ainda não adicionadas.</p>
+                <br>
+                <button onclick="voltar()">⬅ Voltar</button>
+            </div>
+        `;
+        return;
+    }
+
+    area.innerHTML = `
+        <div class="card-detalhe">
+            <h2>${nome}</h2>
+            <p><strong>Classe:</strong> ${dados.classe}</p>
+            <p><strong>Rota:</strong> ${dados.rota}</p>
+            <p><strong>Lore:</strong> ${dados.lore}</p>
+            <br>
+            <button onclick="voltar()">⬅ Voltar</button>
+        </div>
     `;
-
-    area.appendChild(detalhe);
 }
 
 function voltar() {
