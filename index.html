@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ML COUNTER PRO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
-    background: linear-gradient(180deg,#0f0f1a,#090912);
+    background: linear-gradient(to bottom, #070b1f, #0f1433);
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     text-align: center;
-    margin: 0;
     padding: 20px;
 }
 
@@ -19,49 +17,43 @@ h1 {
     color: orange;
 }
 
-button {
+.classe-btn {
     background: orange;
     border: none;
     padding: 12px 20px;
-    margin: 8px;
-    border-radius: 10px;
+    border-radius: 12px;
     font-weight: bold;
+    margin: 6px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-button:hover {
-    transform: scale(1.05);
+.hero-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
 }
 
-.card-heroi {
-    background: #1c1c2e;
-    padding: 20px;
-    margin: 15px;
-    border-radius: 15px;
-    display: inline-block;
+.hero-card {
+    background: #1b1f3a;
+    border-radius: 18px;
+    padding: 10px;
     width: 140px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.card-heroi:hover {
+.hero-card:hover {
     transform: scale(1.05);
 }
 
-.card-detalhe {
-    background: #1c1c2e;
-    padding: 25px;
-    margin-top: 30px;
-    border-radius: 15px;
+.hero-card img {
+    width: 100%;
+    border-radius: 14px;
 }
 
-.imagem-heroi {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 25px orange;
+.hero-name {
+    margin-top: 8px;
+    font-weight: bold;
 }
 </style>
 </head>
@@ -71,81 +63,19 @@ button:hover {
 <h1>ML COUNTER PRO</h1>
 <h2>Escolha uma Classe</h2>
 
-<div>
-    <button onclick="mostrarClasse('tanque')">🛡️ Tanque</button>
-    <button onclick="mostrarClasse('lutador')">⚔️ Lutador</button>
-    <button onclick="mostrarClasse('mago')">🧙 Mago</button>
-    <button onclick="mostrarClasse('assassino')">🗡️ Assassino</button>
-    <button onclick="mostrarClasse('atirador')">🎯 Atirador</button>
-    <button onclick="mostrarClasse('suporte')">💚 Suporte</button>
-</div>
+<button class="classe-btn" onclick="mostrarLutador()">⚔️ Lutador</button>
 
-<div id="areaHerois"></div>
+<div class="hero-container" id="listaHerois"></div>
 
 <script>
 
-const heroisDetalhes = {
-    "Freya": {
-        classe: "Lutador",
-        rota: "EXP Lane",
-        lore: "Freya é uma guerreira abençoada pelos deuses, conhecida por sua força e resistência em batalha.",
-        imagem: "freya.jpg"
-    }
-};
-
-const bancoHerois = {
-    tanque: ["Tigreal", "Khufra", "Atlas"],
-    lutador: ["Freya", "Aldous", "Leomord"],
-    mago: ["Valir", "Lunox", "Kagura"],
-    assassino: ["Gusion", "Hayabusa", "Helcurt"],
-    atirador: ["Layla", "Beatrix", "Clint"],
-    suporte: ["Angela", "Rafaela", "Estes"]
-};
-
-function mostrarClasse(classe) {
-    const area = document.getElementById("areaHerois");
-    area.innerHTML = "";
-
-    bancoHerois[classe].forEach(nome => {
-        area.innerHTML += `
-            <div class="card-heroi" onclick="mostrarHeroi('${nome}')">
-                ${nome}
-            </div>
-        `;
-    });
-}
-
-function mostrarHeroi(nome) {
-    const area = document.getElementById("areaHerois");
-    const dados = heroisDetalhes[nome];
-
-    if (!dados) {
-        area.innerHTML = `
-            <div class="card-detalhe">
-                <h2>${nome}</h2>
-                <p>Informações completas serão adicionadas em breve.</p>
-                <br>
-                <button onclick="voltar()">⬅ Voltar</button>
-            </div>
-        `;
-        return;
-    }
-
-    area.innerHTML = `
-        <div class="card-detalhe">
-            <img src="${dados.imagem}" class="imagem-heroi">
-            <h2>${nome}</h2>
-            <p><strong>Classe:</strong> ${dados.classe}</p>
-            <p><strong>Rota:</strong> ${dados.rota}</p>
-            <p><strong>Lore:</strong> ${dados.lore}</p>
-            <br>
-            <button onclick="voltar()">⬅ Voltar</button>
+function mostrarLutador() {
+    document.getElementById("listaHerois").innerHTML = `
+        <div class="hero-card">
+            <img src="freya-card.jpg">
+            <div class="hero-name">Freya</div>
         </div>
     `;
-}
-
-function voltar() {
-    document.getElementById("areaHerois").innerHTML = "";
 }
 
 </script>
