@@ -39,11 +39,19 @@ button {
 
 .card-heroi {
     background: #1c1c2e;
-    padding: 15px;
-    margin: 10px;
+    padding: 20px;
+    margin: 15px;
     border-radius: 15px;
     display: inline-block;
-    width: 120px;
+    width: 140px;
+    cursor: pointer;
+}
+
+.card-detalhe {
+    background: #1c1c2e;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 15px;
 }
 </style>
 </head>
@@ -82,14 +90,33 @@ function mostrarClasse(classe) {
 
     bancoHerois[classe].forEach(nome => {
         area.innerHTML += `
-            <div class="card-heroi">
+            <div class="card-heroi" onclick="mostrarHeroi('${nome}')">
                 <p>${nome}</p>
             </div>
         `;
     });
 }
 
+function mostrarHeroi(nome) {
+    const area = document.getElementById("areaHerois");
+
+    area.innerHTML = `
+        <div class="card-detalhe">
+            <h2>${nome}</h2>
+            <p><strong>Classe:</strong> Em construção</p>
+            <p><strong>Rota:</strong> Em construção</p>
+            <p><strong>Lore:</strong> Em construção</p>
+            <br>
+            <button onclick="voltarInicio()">⬅ Voltar</button>
+        </div>
+    `;
+}
+
+function voltarInicio() {
+    document.getElementById("areaHerois").innerHTML = "";
+}
+
 </script>
 
 </body>
-</html>
+    </html>
