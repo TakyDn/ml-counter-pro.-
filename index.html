@@ -88,35 +88,41 @@ function mostrarClasse(classe) {
     const area = document.getElementById("areaHerois");
     area.innerHTML = "";
 
-    bancoHerois[classe].forEach(nome => {
-        area.innerHTML += `
-            <div class="card-heroi" onclick="mostrarHeroi('${nome}')">
-                <p>${nome}</p>
-            </div>
-        `;
+    bancoHerois[classe].forEach(function(nome) {
+        const card = document.createElement("div");
+        card.className = "card-heroi";
+        card.innerText = nome;
+        card.onclick = function() {
+            mostrarHeroi(nome);
+        };
+        area.appendChild(card);
     });
 }
 
 function mostrarHeroi(nome) {
     const area = document.getElementById("areaHerois");
 
-    area.innerHTML = `
-        <div class="card-detalhe">
-            <h2>${nome}</h2>
-            <p><strong>Classe:</strong> Em construção</p>
-            <p><strong>Rota:</strong> Em construção</p>
-            <p><strong>Lore:</strong> Em construção</p>
-            <br>
-            <button onclick="voltarInicio()">⬅ Voltar</button>
-        </div>
+    area.innerHTML = "";
+
+    const detalhe = document.createElement("div");
+    detalhe.className = "card-detalhe";
+    detalhe.innerHTML = `
+        <h2>${nome}</h2>
+        <p><strong>Classe:</strong> Em construção</p>
+        <p><strong>Rota:</strong> Em construção</p>
+        <p><strong>Lore:</strong> Em construção</p>
+        <br>
+        <button onclick="voltar()">⬅ Voltar</button>
     `;
+
+    area.appendChild(detalhe);
 }
 
-function voltarInicio() {
+function voltar() {
     document.getElementById("areaHerois").innerHTML = "";
 }
 
 </script>
 
 </body>
-    </html>
+</html>
