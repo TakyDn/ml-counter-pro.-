@@ -15,7 +15,9 @@ body {
     padding: 20px;
 }
 
-h1 { color: orange; }
+h1 {
+    color: orange;
+}
 
 button {
     background: orange;
@@ -28,7 +30,9 @@ button {
     transition: 0.3s;
 }
 
-button:hover { transform: scale(1.05); }
+button:hover {
+    transform: scale(1.05);
+}
 
 .card-heroi {
     background: #1c1c2e;
@@ -38,6 +42,11 @@ button:hover { transform: scale(1.05); }
     display: inline-block;
     width: 140px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-heroi:hover {
+    transform: scale(1.05);
 }
 
 .card-detalhe {
@@ -80,7 +89,7 @@ const heroisDetalhes = {
         classe: "Lutador",
         rota: "EXP Lane",
         lore: "Freya é uma guerreira abençoada pelos deuses, conhecida por sua força e resistência em batalha.",
-        imagem: "imagens/freya.jpg" // use sua imagem enviada
+        imagem: "freya.jpg"
     }
 };
 
@@ -90,4 +99,56 @@ const bancoHerois = {
     mago: ["Valir", "Lunox", "Kagura"],
     assassino: ["Gusion", "Hayabusa", "Helcurt"],
     atirador: ["Layla", "Beatrix", "Clint"],
-    suporte: ["Angela", "Rafaela", "Est
+    suporte: ["Angela", "Rafaela", "Estes"]
+};
+
+function mostrarClasse(classe) {
+    const area = document.getElementById("areaHerois");
+    area.innerHTML = "";
+
+    bancoHerois[classe].forEach(nome => {
+        area.innerHTML += `
+            <div class="card-heroi" onclick="mostrarHeroi('${nome}')">
+                ${nome}
+            </div>
+        `;
+    });
+}
+
+function mostrarHeroi(nome) {
+    const area = document.getElementById("areaHerois");
+    const dados = heroisDetalhes[nome];
+
+    if (!dados) {
+        area.innerHTML = `
+            <div class="card-detalhe">
+                <h2>${nome}</h2>
+                <p>Informações completas serão adicionadas em breve.</p>
+                <br>
+                <button onclick="voltar()">⬅ Voltar</button>
+            </div>
+        `;
+        return;
+    }
+
+    area.innerHTML = `
+        <div class="card-detalhe">
+            <img src="${dados.imagem}" class="imagem-heroi">
+            <h2>${nome}</h2>
+            <p><strong>Classe:</strong> ${dados.classe}</p>
+            <p><strong>Rota:</strong> ${dados.rota}</p>
+            <p><strong>Lore:</strong> ${dados.lore}</p>
+            <br>
+            <button onclick="voltar()">⬅ Voltar</button>
+        </div>
+    `;
+}
+
+function voltar() {
+    document.getElementById("areaHerois").innerHTML = "";
+}
+
+</script>
+
+</body>
+</html>
