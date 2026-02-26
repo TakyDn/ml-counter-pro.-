@@ -1,71 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>ML COUNTER PRO</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      background-color: #0f0f1a;
-      color: white;
-      font-family: Arial;
-      text-align: center;
-      padding: 20px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML COUNTER PRO</title>
 
-    h1 {
-      color: orange;
-    }
+<style>
+body {
+    background-color: #0f0f1a;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
 
-    .card {
-      background: #1c1c2e;
-      padding: 15px;
-      border-radius: 15px;
-      margin: 10px;
-    }
+h1 {
+    color: orange;
+}
 
-    button {
-      background: orange;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-  </style>
+.container {
+    margin-top: 30px;
+}
+
+button {
+    background: orange;
+    border: none;
+    padding: 12px 20px;
+    margin: 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.herois {
+    margin-top: 30px;
+}
+
+.card-heroi {
+    background: #1c1c2e;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 120px;
+}
+</style>
 </head>
 
 <body>
 
-  <h1>ML COUNTER PRO</h1>
+<h1>ML COUNTER PRO</h1>
 
-  <div class="card">
-    <h2>Escolha um Herói</h2>
-    <select id="hero">
-      <option>Freya</option>
-      <option>Gusion</option>
-      <option>Layla</option>
-    </select>
-    <br><br>
-    <button onclick="mostrarCounter()">Ver Counter</button>
-  </div>
+<h2>Escolha uma Classe</h2>
 
-  <div class="card" id="resultado">
-  </div>
+<div class="container">
+    <button onclick="mostrarClasse('tanque')">🛡️ Tanque</button>
+    <button onclick="mostrarClasse('lutador')">⚔️ Lutador</button>
+    <button onclick="mostrarClasse('mago')">🧙 Mago</button>
+    <button onclick="mostrarClasse('assassino')">🗡️ Assassino</button>
+    <button onclick="mostrarClasse('atirador')">🎯 Atirador</button>
+    <button onclick="mostrarClasse('suporte')">💚 Suporte</button>
+</div>
+
+<div class="herois" id="areaHerois"></div>
 
 <script>
-function mostrarCounter() {
-  let hero = document.getElementById("hero").value;
-  let resultado = document.getElementById("resultado");
 
-  if(hero === "Freya") {
-    resultado.innerHTML = "Counter forte: Khufra, Valir";
-  }
-  if(hero === "Gusion") {
-    resultado.innerHTML = "Counter forte: Chou, Franco";
-  }
-  if(hero === "Layla") {
-    resultado.innerHTML = "Counter forte: Natalia, Helcurt";
-  }
+const bancoHerois = {
+    tanque: ["Tigreal", "Khufra", "Atlas"],
+    lutador: ["Freya", "Aldous", "Leomord"],
+    mago: ["Valir", "Lunox", "Kagura"],
+    assassino: ["Gusion", "Hayabusa", "Helcurt"],
+    atirador: ["Layla", "Beatrix", "Clint"],
+    suporte: ["Angela", "Rafaela", "Estes"]
+};
+
+function mostrarClasse(classe) {
+    const area = document.getElementById("areaHerois");
+    area.innerHTML = "";
+
+    bancoHerois[classe].forEach(nome => {
+        area.innerHTML += `
+            <div class="card-heroi">
+                <p>${nome}</p>
+            </div>
+        `;
+    });
 }
+
 </script>
 
 </body>
