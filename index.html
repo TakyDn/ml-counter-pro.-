@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ML COUNTER PRO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #0f0f1a;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: orange;
+    }
+
+    .card {
+      background: #1c1c2e;
+      padding: 15px;
+      border-radius: 15px;
+      margin: 10px;
+    }
+
+    button {
+      background: orange;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>ML COUNTER PRO</h1>
+
+  <div class="card">
+    <h2>Escolha um Herói</h2>
+    <select id="hero">
+      <option>Freya</option>
+      <option>Gusion</option>
+      <option>Layla</option>
+    </select>
+    <br><br>
+    <button onclick="mostrarCounter()">Ver Counter</button>
+  </div>
+
+  <div class="card" id="resultado">
+  </div>
+
+<script>
+function mostrarCounter() {
+  let hero = document.getElementById("hero").value;
+  let resultado = document.getElementById("resultado");
+
+  if(hero === "Freya") {
+    resultado.innerHTML = "Counter forte: Khufra, Valir";
+  }
+  if(hero === "Gusion") {
+    resultado.innerHTML = "Counter forte: Chou, Franco";
+  }
+  if(hero === "Layla") {
+    resultado.innerHTML = "Counter forte: Natalia, Helcurt";
+  }
+}
+</script>
+
+</body>
+</html>
