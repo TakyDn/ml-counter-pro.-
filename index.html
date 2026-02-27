@@ -61,7 +61,6 @@ h1 {
     font-weight: bold;
 }
 
-/* CARD DE DETALHES */
 .detalhes-card {
     margin-top: 40px;
     background: rgba(27, 31, 58, 0.95);
@@ -111,6 +110,11 @@ h1 {
 
 .dourado {
     color: #ffb84d;
+    font-weight: bold;
+}
+
+.vermelho {
+    color: #ff4d4d;
     font-weight: bold;
 }
 
@@ -176,8 +180,14 @@ function abrirFreya() {
             </div>
 
             <div class="skill">
-                <div class="skill-title">Skill 1 – Salto da Valquíria</div>
-                <p>Freya salta até o alvo causando dano físico e reduzindo a defesa do inimigo.</p>
+                <div class="skill-title">Skill 1 – Salto da Fé</div>
+                <p>
+                    Freya salta para a área designada e atinge o chão com seu escudo.
+                    Ganhando 500 <span class="dourado">(+100% do Ataque Físico Total)</span> de escudo
+                    e causando 200 <span class="dourado">(+80% do Ataque Físico Adicional)</span>
+                    de <span class="vermelho">Dano Físico</span> aos inimigos dentro da área,
+                    os lançando ao ar por 0.4s.
+                </p>
             </div>
 
             <div class="skill">
