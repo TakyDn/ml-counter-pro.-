@@ -20,7 +20,6 @@ body{
   padding:20px;  
 }  
   
-/* ===== LOGO ===== */  
 .logo-container{  
   margin-bottom:20px;  
 }  
@@ -140,28 +139,19 @@ body{
   display:none;  
 }  
 
-/* ===== BLOQUEIO VISUAL ADICIONADO ===== */
-
-/* Remove seleção de texto */
+/* BLOQUEIO VISUAL */
 body, img, h1, h2, h3, p, span, td, th {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-
-/* Remove arrastar imagem */
 img {
   -webkit-user-drag: none;
   user-drag: none;
 }
-
-/* Remove highlight azul no mobile */
 * {
   -webkit-tap-highlight-color: transparent;
 }
-
-/* ======================================= */
-
 </style>  
 </head>  
   
@@ -202,7 +192,44 @@ de <span class="vermelho">Dano Físico</span> aos inimigos dentro da área,
 os lançando ao ar por 0.4s.  
 </p>  
 
-<!-- tabela mantida igual -->
+<div class="tabela-skill">
+<table>
+<tr>
+<th></th>
+<th style="color:#f5b642;font-weight:bold;">Nv.1</th>
+<th style="color:#f5b642;font-weight:bold;">Nv.2</th>
+<th style="color:#f5b642;font-weight:bold;">Nv.3</th>
+<th style="color:#f5b642;font-weight:bold;">Nv.4</th>
+<th style="color:#f5b642;font-weight:bold;">Nv.5</th>
+<th style="color:#f5b642;font-weight:bold;">Nv.6</th>
+</tr>
+
+<tr>
+<td><b style="color:#f5b642;">Tempo de Recarga</b></td>
+<td>8.0</td><td>7.6</td><td>7.2</td><td>6.8</td><td>6.4</td><td>6.0</td>
+</tr>
+
+<tr>
+<td><b style="color:#f5b642;">Escudo</b></td>
+<td style="color:#00BFFF;font-weight:bold;">500</td>
+<td style="color:#00BFFF;font-weight:bold;">580</td>
+<td style="color:#00BFFF;font-weight:bold;">660</td>
+<td style="color:#00BFFF;font-weight:bold;">740</td>
+<td style="color:#00BFFF;font-weight:bold;">820</td>
+<td style="color:#00BFFF;font-weight:bold;">900</td>
+</tr>
+
+<tr>
+<td><b style="color:#f5b642;">Dano Base</b></td>
+<td style="color:#ff4d4d;font-weight:bold;">200</td>
+<td style="color:#ff4d4d;font-weight:bold;">220</td>
+<td style="color:#ff4d4d;font-weight:bold;">240</td>
+<td style="color:#ff4d4d;font-weight:bold;">260</td>
+<td style="color:#ff4d4d;font-weight:bold;">280</td>
+<td style="color:#ff4d4d;font-weight:bold;">300</td>
+</tr>
+</table>
+</div>
 
 </div>  
 <div class="botao" onclick="voltar()">← Voltar</div>  
@@ -211,6 +238,7 @@ os lançando ao ar por 0.4s.
 </div>  
 
 <script>  
+
 function tocarSomLogo(){  
   const som = document.getElementById("logoSound");  
   som.currentTime = 0;  
@@ -235,6 +263,12 @@ function voltar(){
   document.getElementById("telaDetalhe").classList.add("oculto");  
   document.getElementById("telaInicial").classList.remove("oculto");  
 }  
+
+// BLOQUEIA MENU AO SEGURAR
+document.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+});
+
 </script>  
   
 </body>  
