@@ -13,9 +13,7 @@ body {
     padding: 20px;
 }
 
-h1 {
-    color: orange;
-}
+h1 { color: orange; }
 
 .classe-btn {
     background: linear-gradient(45deg, #ff9900, #ffb84d);
@@ -28,9 +26,7 @@ h1 {
     transition: 0.3s;
 }
 
-.classe-btn:hover {
-    transform: scale(1.05);
-}
+.classe-btn:hover { transform: scale(1.05); }
 
 .hero-container {
     margin-top: 30px;
@@ -47,9 +43,7 @@ h1 {
     transition: 0.3s;
 }
 
-.hero-card:hover {
-    transform: scale(1.05);
-}
+.hero-card:hover { transform: scale(1.05); }
 
 .hero-card img {
     width: 100%;
@@ -63,70 +57,63 @@ h1 {
 
 .detalhes-card {
     margin-top: 40px;
-    background: rgba(27, 31, 58, 0.95);
+    background: rgba(27,31,58,0.95);
     padding: 25px;
     border-radius: 25px;
-    max-width: 420px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 0 25px rgba(255, 165, 0, 0.3);
-    animation: aparecer 0.4s ease forwards;
+    box-shadow: 0 0 25px rgba(255,165,0,0.3);
 }
 
 .detalhes-card img {
-    width: 75%;
+    width: 60%;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
+    box-shadow: 0 0 20px rgba(255,165,0,0.4);
 }
 
-.info {
-    text-align: left;
-    margin-top: 15px;
-    line-height: 1.6;
-}
-
-.info b {
-    color: #ffb84d;
-}
+.info { text-align: left; margin-top: 15px; line-height: 1.6; }
 
 .skill {
     background: rgba(255,255,255,0.05);
-    padding: 12px;
-    border-radius: 12px;
-    margin-top: 10px;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
     text-align: left;
-    transition: 0.3s;
-}
-
-.skill:hover {
-    background: rgba(255,165,0,0.1);
-    transform: translateX(4px);
 }
 
 .skill-title {
     color: #ffb84d;
     font-weight: bold;
+    margin-bottom: 8px;
 }
 
-.dourado {
-    color: #ffb84d;
-    font-weight: bold;
+.dourado { color: #ffb84d; font-weight: bold; }
+.vermelho { color: #ff4d4d; font-weight: bold; }
+
+/* TABELA */
+.tabela-skill {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    font-size: 14px;
 }
 
-.vermelho {
-    color: #ff4d4d;
-    font-weight: bold;
+.tabela-skill th, .tabela-skill td {
+    padding: 8px;
+    text-align: center;
 }
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.tabela-skill th {
+    background: rgba(255,255,255,0.08);
+}
+
+.tabela-skill tr:nth-child(even) {
+    background: rgba(255,255,255,0.05);
+}
+
+.tabela-skill tr:hover {
+    background: rgba(255,165,0,0.08);
 }
 </style>
 </head>
@@ -167,37 +154,54 @@ function abrirFreya() {
 
             <hr style="margin:20px 0; opacity:0.2;">
 
-            <h3>🔥 Habilidades</h3>
-
             <div class="skill">
-                <div class="skill-title">Passiva – Poder de Einherjar</div>
+                <div class="skill-title">🔥 Skill 1 – Salto da Fé</div>
                 <p>
-                    Freya ganha 1 <span class="dourado">Orbe Sagrado</span> a cada Ataque Básico (até 6 <span class="dourado">Orbes Sagrados</span>).
-                    Consumir 1 <span class="dourado">Orbe Sagrado</span> concederá à Freya 100% de Velocidade de Ataque
-                    para seu próximo Ataque Básico (máximo de 6 acúmulos).
-                    Os <span class="dourado">Orbes Sagrados</span> se recuperam gradualmente fora de combate.
-                </p>
-            </div>
-
-            <div class="skill">
-                <div class="skill-title">Skill 1 – Salto da Fé</div>
-                <p>
-                    Freya salta para a área designada e atinge o chão com seu escudo.
-                    Ganhando 500 <span class="dourado">(+100% do Ataque Físico Total)</span> de escudo
+                    Freya salta para a área designada e atinge o chão com seu escudo,
+                    ganhando 500 <span class="dourado">(+100% do Ataque Físico Total)</span> de escudo
                     e causando 200 <span class="dourado">(+80% do Ataque Físico Adicional)</span>
                     de <span class="vermelho">Dano Físico</span> aos inimigos dentro da área,
                     os lançando ao ar por 0.4s.
                 </p>
-            </div>
 
-            <div class="skill">
-                <div class="skill-title">Skill 2 – Golpes Sagrados</div>
-                <p>Freya desfere uma sequência de ataques poderosos causando dano em área.</p>
-            </div>
-
-            <div class="skill">
-                <div class="skill-title">Ultimate – Ira Divina</div>
-                <p>Freya ativa seu poder máximo aumentando dano e velocidade de ataque.</p>
+                <table class="tabela-skill">
+                    <tr>
+                        <th></th>
+                        <th>Nv.1</th>
+                        <th>Nv.2</th>
+                        <th>Nv.3</th>
+                        <th>Nv.4</th>
+                        <th>Nv.5</th>
+                        <th>Nv.6</th>
+                    </tr>
+                    <tr>
+                        <td><b>Tempo de Recarga</b></td>
+                        <td>8.0</td>
+                        <td>7.6</td>
+                        <td>7.2</td>
+                        <td>6.8</td>
+                        <td>6.4</td>
+                        <td>6.0</td>
+                    </tr>
+                    <tr>
+                        <td><b>Escudo</b></td>
+                        <td>500</td>
+                        <td>580</td>
+                        <td>660</td>
+                        <td>740</td>
+                        <td>820</td>
+                        <td>900</td>
+                    </tr>
+                    <tr>
+                        <td><b>Dano Base</b></td>
+                        <td>200</td>
+                        <td>220</td>
+                        <td>240</td>
+                        <td>260</td>
+                        <td>280</td>
+                        <td class="vermelho">300</td>
+                    </tr>
+                </table>
             </div>
 
             <br>
