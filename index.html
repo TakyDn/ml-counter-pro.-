@@ -6,97 +6,124 @@
 <title>ML COUNTER PRO</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #0b0f2a, #11183c);
-  color: white;
-  text-align: center;
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(180deg,#0b0f2a,#11183c);
+  color:white;
+  text-align:center;
 }
 
-.container {
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
 }
 
-h1 {
-  color: #f5b642;
-  margin-bottom: 10px;
+h1{
+  color:#f5b642;
 }
 
-.hero-img {
-  width: 80%;
-  max-width: 350px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(245,182,66,0.4);
-  margin-bottom: 20px;
+.btn-classe{
+  background:#f5b642;
+  border:none;
+  padding:12px 25px;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+  margin:10px;
 }
 
-.info-destaque {
-  color: #f5b642;
-  font-weight: bold;
+.card{
+  background:rgba(255,255,255,0.05);
+  border-radius:20px;
+  padding:15px;
+  margin-top:20px;
+  cursor:pointer;
+  display:inline-block;
+  width:220px;
+  transition:0.3s;
 }
 
-.skill-box {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 20px;
-  margin-top: 25px;
-  text-align: left;
+.card:hover{
+  transform:scale(1.05);
 }
 
-.skill-box h2 {
-  color: #f5b642;
-  margin-top: 0;
+.card img{
+  width:100%;
+  border-radius:15px;
 }
 
-.dourado {
-  color: #f5b642;
-  font-weight: bold;
+.hero-img{
+  width:80%;
+  max-width:350px;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(245,182,66,0.4);
 }
 
-.vermelho {
-  color: #ff4d4d;
-  font-weight: bold;
+.info-destaque{
+  color:#f5b642;
+  font-weight:bold;
 }
 
-.tabela-skill {
-  width: 100%;
-  overflow-x: auto;
-  margin-top: 15px;
+.skill-box{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  text-align:left;
 }
 
-.tabela-skill table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 500px;
+.dourado{
+  color:#f5b642;
+  font-weight:bold;
+}
+
+.vermelho{
+  color:#ff4d4d;
+  font-weight:bold;
+}
+
+.tabela-skill{
+  width:100%;
+  overflow-x:auto;
+  margin-top:15px;
+}
+
+.tabela-skill table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:500px;
 }
 
 .tabela-skill th,
-.tabela-skill td {
-  padding: 10px;
-  text-align: center;
+.tabela-skill td{
+  padding:8px;
+  text-align:center;
 }
 
-.tabela-skill th {
-  background: rgba(255,255,255,0.08);
-  font-weight: bold;
+.tabela-skill th{
+  background:rgba(255,255,255,0.08);
 }
 
-.tabela-skill tr:nth-child(even) {
-  background: rgba(255,255,255,0.03);
+.tabela-skill tr:nth-child(even){
+  background:rgba(255,255,255,0.03);
 }
 
-.botao {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 25px;
-  background: #f5b642;
-  color: black;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
+.botao{
+  display:inline-block;
+  margin-top:25px;
+  padding:10px 20px;
+  background:#f5b642;
+  color:black;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.oculto{
+  display:none;
 }
 </style>
 </head>
@@ -105,7 +132,21 @@ h1 {
 
 <div class="container">
 
-<h1>Freya</h1>
+<h1>ML COUNTER PRO</h1>
+
+<!-- TELA INICIAL -->
+<div id="telaInicial">
+
+<h2>Escolha uma Classe</h2>
+
+<button class="btn-classe" onclick="mostrarLutador()">⚔ Lutador</button>
+
+<div id="areaCards"></div>
+
+</div>
+
+<!-- TELA DETALHE -->
+<div id="telaDetalhe" class="oculto">
 
 <img src="freya-detalhe.jpg" class="hero-img">
 
@@ -120,17 +161,16 @@ h1 {
 <h2>🔥 Skill 1 – Salto da Fé</h2>
 
 <p>
-Freya salta para a área designada e atinge o chão com seu escudo, 
-ganhando 500 <span class="dourado">(+100% do Ataque Físico Total)</span> 
+Freya salta para a área designada e atinge o chão com seu escudo,
+ganhando 500 <span class="dourado">(+100% do Ataque Físico Total)</span>
 de escudo e causando 200 
-<span class="dourado">(+80% do Ataque Físico Adicional)</span> 
-de <span class="vermelho">Dano Físico</span> aos inimigos dentro da área, 
+<span class="dourado">(+80% do Ataque Físico Adicional)</span>
+de <span class="vermelho">Dano Físico</span> aos inimigos dentro da área,
 os lançando ao ar por 0.4s.
 </p>
 
 <div class="tabela-skill">
 <table>
-
 <tr>
 <th></th>
 <th>Nv.1</th>
@@ -170,15 +210,39 @@ os lançando ao ar por 0.4s.
 <td>280</td>
 <td style="color:#ff4d4d;font-weight:bold;">300</td>
 </tr>
-
 </table>
 </div>
 
 </div>
 
-<a href="index.html" class="botao">← Voltar</a>
+<div class="botao" onclick="voltar()">← Voltar</div>
 
 </div>
+
+</div>
+
+<script>
+
+function mostrarLutador(){
+  document.getElementById("areaCards").innerHTML = `
+    <div class="card" onclick="abrirFreya()">
+      <img src="freya-card.jpg">
+      <h3>Freya</h3>
+    </div>
+  `;
+}
+
+function abrirFreya(){
+  document.getElementById("telaInicial").classList.add("oculto");
+  document.getElementById("telaDetalhe").classList.remove("oculto");
+}
+
+function voltar(){
+  document.getElementById("telaDetalhe").classList.add("oculto");
+  document.getElementById("telaInicial").classList.remove("oculto");
+}
+
+</script>
 
 </body>
 </html>
