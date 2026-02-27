@@ -20,9 +20,24 @@ body{
   padding:20px;
 }
 
-h1{
-  color:#f5b642;
+/* ===== LOGO ===== */
+.logo-container{
+  margin-bottom:20px;
 }
+
+.logo-img{
+  width:90%;
+  max-width:420px;
+  filter: drop-shadow(0 0 15px rgba(255,204,0,0.6));
+  transition:0.4s;
+}
+
+.logo-img:hover{
+  filter: drop-shadow(0 0 25px rgba(255,204,0,0.9));
+  transform:scale(1.03);
+}
+
+/* ================= */
 
 .btn-classe{
   background:#f5b642;
@@ -132,7 +147,10 @@ h1{
 
 <div class="container">
 
-<h1>ML COUNTER PRO</h1>
+<!-- LOGO NO LUGAR DO TEXTO -->
+<div class="logo-container">
+  <img src="logo.png" class="logo-img">
+</div>
 
 <!-- TELA INICIAL -->
 <div id="telaInicial">
@@ -182,17 +200,12 @@ os lançando ao ar por 0.4s.
 </tr>
 
 <tr>
-<td><b style="color:#f5b642;font-weight:bold;">Tempo de Recarga</b></td>
-<td>8.0</td>
-<td>7.6</td>
-<td>7.2</td>
-<td>6.8</td>
-<td>6.4</td>
-<td>6.0</td>
+<td><b style="color:#f5b642;">Tempo de Recarga</b></td>
+<td>8.0</td><td>7.6</td><td>7.2</td><td>6.8</td><td>6.4</td><td>6.0</td>
 </tr>
 
 <tr>
-<td><b style="color:#f5b642;font-weight:bold;">Escudo</b></td>
+<td><b style="color:#f5b642;">Escudo</b></td>
 <td style="color:#00BFFF;font-weight:bold;">500</td>
 <td style="color:#00BFFF;font-weight:bold;">580</td>
 <td style="color:#00BFFF;font-weight:bold;">660</td>
@@ -202,7 +215,7 @@ os lançando ao ar por 0.4s.
 </tr>
 
 <tr>
-<td><b style="color:#f5b642;font-weight:bold;">Dano Base</b></td>
+<td><b style="color:#f5b642;">Dano Base</b></td>
 <td style="color:#ff4d4d;font-weight:bold;">200</td>
 <td style="color:#ff4d4d;font-weight:bold;">220</td>
 <td style="color:#ff4d4d;font-weight:bold;">240</td>
@@ -222,7 +235,6 @@ os lançando ao ar por 0.4s.
 </div>
 
 <script>
-
 function mostrarLutador(){
   document.getElementById("areaCards").innerHTML = `
     <div class="card" onclick="abrirFreya()">
@@ -241,7 +253,6 @@ function voltar(){
   document.getElementById("telaDetalhe").classList.add("oculto");
   document.getElementById("telaInicial").classList.remove("oculto");
 }
-
 </script>
 
 </body>
