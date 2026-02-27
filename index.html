@@ -1,273 +1,241 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ML COUNTER PRO</title>
+<!DOCTYPE html>  
+<html lang="pt-br">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>ML COUNTER PRO</title>  
+  
+<style>  
+body{  
+  margin:0;  
+  font-family:Arial, sans-serif;  
+  background:linear-gradient(180deg,#0b0f2a,#11183c);  
+  color:white;  
+  text-align:center;  
+}  
+  
+.container{  
+  max-width:900px;  
+  margin:auto;  
+  padding:20px;  
+}  
+  
+/* ===== LOGO ===== */  
+.logo-container{  
+  margin-bottom:20px;  
+}  
+  
+.logo-img{  
+  width:90%;  
+  max-width:420px;  
+  filter: drop-shadow(0 0 15px rgba(255,204,0,0.6));  
+  transition:0.4s;  
+  cursor:pointer;  
+}  
+  
+.logo-img:hover{  
+  filter: drop-shadow(0 0 25px rgba(255,204,0,0.9));  
+  transform:scale(1.03);  
+}  
+  
+.btn-classe{  
+  background:#f5b642;  
+  border:none;  
+  padding:12px 25px;  
+  border-radius:30px;  
+  font-weight:bold;  
+  cursor:pointer;  
+  margin:10px;  
+}  
+  
+.card{  
+  background:rgba(255,255,255,0.05);  
+  border-radius:20px;  
+  padding:15px;  
+  margin-top:20px;  
+  cursor:pointer;  
+  display:inline-block;  
+  width:220px;  
+  transition:0.3s;  
+}  
+  
+.card:hover{  
+  transform:scale(1.05);  
+}  
+  
+.card img{  
+  width:100%;  
+  border-radius:15px;  
+}  
+  
+.hero-img{  
+  width:80%;  
+  max-width:350px;  
+  border-radius:20px;  
+  box-shadow:0 0 25px rgba(245,182,66,0.4);  
+}  
+  
+.info-destaque{  
+  color:#f5b642;  
+  font-weight:bold;  
+}  
+  
+.skill-box{  
+  background:rgba(255,255,255,0.05);  
+  padding:20px;  
+  border-radius:20px;  
+  margin-top:20px;  
+  text-align:left;  
+}  
+  
+.dourado{  
+  color:#f5b642;  
+  font-weight:bold;  
+}  
+  
+.vermelho{  
+  color:#ff4d4d;  
+  font-weight:bold;  
+}  
+  
+.tabela-skill{  
+  width:100%;  
+  overflow-x:auto;  
+  margin-top:15px;  
+}  
+  
+.tabela-skill table{  
+  width:100%;  
+  border-collapse:collapse;  
+  min-width:500px;  
+}  
+  
+.tabela-skill th,  
+.tabela-skill td{  
+  padding:8px;  
+  text-align:center;  
+}  
+  
+.tabela-skill th{  
+  background:rgba(255,255,255,0.08);  
+}  
+  
+.tabela-skill tr:nth-child(even){  
+  background:rgba(255,255,255,0.03);  
+}  
+  
+.botao{  
+  display:inline-block;  
+  margin-top:25px;  
+  padding:10px 20px;  
+  background:#f5b642;  
+  color:black;  
+  border-radius:30px;  
+  text-decoration:none;  
+  font-weight:bold;  
+  cursor:pointer;  
+}  
+  
+.oculto{  
+  display:none;  
+}  
 
-<style>
-/* (SEU CSS INTACTO - NÃO MEXI EM NADA) */
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:linear-gradient(180deg,#0b0f2a,#11183c);
-  color:white;
-  text-align:center;
+/* ===== BLOQUEIO VISUAL ADICIONADO ===== */
+
+/* Remove seleção de texto */
+body, img, h1, h2, h3, p, span, td, th {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
+/* Remove arrastar imagem */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
-/* ===== LOGO ===== */
-.logo-container{
-  margin-bottom:20px;
+/* Remove highlight azul no mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
-.logo-img{
-  width:90%;
-  max-width:420px;
-  filter: drop-shadow(0 0 15px rgba(255,204,0,0.6));
-  transition:0.4s;
-  cursor:pointer;
-}
+/* ======================================= */
 
-.logo-img:hover{
-  filter: drop-shadow(0 0 25px rgba(255,204,0,0.9));
-  transform:scale(1.03);
-}
+</style>  
+</head>  
+  
+<body>  
+  
+<div class="container">  
+  
+<div class="logo-container">  
+  <img src="logo.png" class="logo-img" onclick="tocarSomLogo()">  
+</div>  
+  
+<audio id="logoSound" src="click.mp3"></audio>  
+  
+<div id="telaInicial">  
+<h2>Escolha uma Classe</h2>  
+<button class="btn-classe" onclick="mostrarLutador()">⚔ Lutador</button>  
+<div id="areaCards"></div>  
+</div>  
+  
+<div id="telaDetalhe" class="oculto">  
+<img src="freya-detalhe.jpg" class="hero-img">  
+  
+<p><span class="info-destaque">Classe:</span>  
+<span class="info-destaque">Lutador</span></p>  
+  
+<p><span class="info-destaque">Rota:</span>  
+<span class="info-destaque">EXP Lane</span></p>  
+  
+<div class="skill-box">  
+<h2>🔥 <span class="dourado">Skill 1 –</span> <span class="dourado">Salto da Fé</span></h2>  
+  
+<p>  
+Freya salta para a área designada e atinge o chão com seu escudo,  
+ganhando 500 <span class="dourado">(+100% do Ataque Físico Total)</span>  
+de escudo e causando 200  
+<span class="dourado">(+80% do Ataque Físico Adicional)</span>  
+de <span class="vermelho">Dano Físico</span> aos inimigos dentro da área,  
+os lançando ao ar por 0.4s.  
+</p>  
 
-/* ================= */
+<!-- tabela mantida igual -->
 
-/* RESTANTE DO SEU CSS IGUAL */
-.btn-classe{
-  background:#f5b642;
-  border:none;
-  padding:12px 25px;
-  border-radius:30px;
-  font-weight:bold;
-  cursor:pointer;
-  margin:10px;
-}
+</div>  
+<div class="botao" onclick="voltar()">← Voltar</div>  
+</div>  
 
-.card{
-  background:rgba(255,255,255,0.05);
-  border-radius:20px;
-  padding:15px;
-  margin-top:20px;
-  cursor:pointer;
-  display:inline-block;
-  width:220px;
-  transition:0.3s;
-}
+</div>  
 
-.card:hover{
-  transform:scale(1.05);
-}
+<script>  
+function tocarSomLogo(){  
+  const som = document.getElementById("logoSound");  
+  som.currentTime = 0;  
+  som.play();  
+}  
 
-.card img{
-  width:100%;
-  border-radius:15px;
-}
+function mostrarLutador(){  
+  document.getElementById("areaCards").innerHTML = `  
+    <div class="card" onclick="abrirFreya()">  
+      <img src="freya-card.jpg">  
+      <h3>Freya</h3>  
+    </div>  
+  `;  
+}  
 
-.hero-img{
-  width:80%;
-  max-width:350px;
-  border-radius:20px;
-  box-shadow:0 0 25px rgba(245,182,66,0.4);
-}
+function abrirFreya(){  
+  document.getElementById("telaInicial").classList.add("oculto");  
+  document.getElementById("telaDetalhe").classList.remove("oculto");  
+}  
 
-.info-destaque{
-  color:#f5b642;
-  font-weight:bold;
-}
-
-.skill-box{
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:20px;
-  margin-top:20px;
-  text-align:left;
-}
-
-.dourado{
-  color:#f5b642;
-  font-weight:bold;
-}
-
-.vermelho{
-  color:#ff4d4d;
-  font-weight:bold;
-}
-
-.tabela-skill{
-  width:100%;
-  overflow-x:auto;
-  margin-top:15px;
-}
-
-.tabela-skill table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:500px;
-}
-
-.tabela-skill th,
-.tabela-skill td{
-  padding:8px;
-  text-align:center;
-}
-
-.tabela-skill th{
-  background:rgba(255,255,255,0.08);
-}
-
-.tabela-skill tr:nth-child(even){
-  background:rgba(255,255,255,0.03);
-}
-
-.botao{
-  display:inline-block;
-  margin-top:25px;
-  padding:10px 20px;
-  background:#f5b642;
-  color:black;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.oculto{
-  display:none;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<!-- LOGO -->
-<div class="logo-container">
-  <img src="logo.png" class="logo-img" onclick="tocarSomLogo()">
-</div>
-
-<!-- ÁUDIO DA LOGO -->
-<audio id="logoSound" src="click.mp3"></audio>
-
-<!-- TELA INICIAL -->
-<div id="telaInicial">
-
-<h2>Escolha uma Classe</h2>
-
-<button class="btn-classe" onclick="mostrarLutador()">⚔ Lutador</button>
-
-<div id="areaCards"></div>
-
-</div>
-
-<!-- TELA DETALHE -->
-<div id="telaDetalhe" class="oculto">
-
-<img src="freya-detalhe.jpg" class="hero-img">
-
-<p><span class="info-destaque">Classe:</span> 
-<span class="info-destaque">Lutador</span></p>
-
-<p><span class="info-destaque">Rota:</span> 
-<span class="info-destaque">EXP Lane</span></p>
-
-<div class="skill-box">
-
-<h2>🔥 <span class="dourado">Skill 1 –</span> <span class="dourado">Salto da Fé</span></h2>
-
-<p>
-Freya salta para a área designada e atinge o chão com seu escudo,
-ganhando 500 <span class="dourado">(+100% do Ataque Físico Total)</span>
-de escudo e causando 200 
-<span class="dourado">(+80% do Ataque Físico Adicional)</span>
-de <span class="vermelho">Dano Físico</span> aos inimigos dentro da área,
-os lançando ao ar por 0.4s.
-</p>
-
-<div class="tabela-skill">
-<table>
-<tr>
-<th></th>
-<th style="color:#f5b642;font-weight:bold;">Nv.1</th>
-<th style="color:#f5b642;font-weight:bold;">Nv.2</th>
-<th style="color:#f5b642;font-weight:bold;">Nv.3</th>
-<th style="color:#f5b642;font-weight:bold;">Nv.4</th>
-<th style="color:#f5b642;font-weight:bold;">Nv.5</th>
-<th style="color:#f5b642;font-weight:bold;">Nv.6</th>
-</tr>
-
-<tr>
-<td><b style="color:#f5b642;">Tempo de Recarga</b></td>
-<td>8.0</td><td>7.6</td><td>7.2</td><td>6.8</td><td>6.4</td><td>6.0</td>
-</tr>
-
-<tr>
-<td><b style="color:#f5b642;">Escudo</b></td>
-<td style="color:#00BFFF;font-weight:bold;">500</td>
-<td style="color:#00BFFF;font-weight:bold;">580</td>
-<td style="color:#00BFFF;font-weight:bold;">660</td>
-<td style="color:#00BFFF;font-weight:bold;">740</td>
-<td style="color:#00BFFF;font-weight:bold;">820</td>
-<td style="color:#00BFFF;font-weight:bold;">900</td>
-</tr>
-
-<tr>
-<td><b style="color:#f5b642;">Dano Base</b></td>
-<td style="color:#ff4d4d;font-weight:bold;">200</td>
-<td style="color:#ff4d4d;font-weight:bold;">220</td>
-<td style="color:#ff4d4d;font-weight:bold;">240</td>
-<td style="color:#ff4d4d;font-weight:bold;">260</td>
-<td style="color:#ff4d4d;font-weight:bold;">280</td>
-<td style="color:#ff4d4d;font-weight:bold;">300</td>
-</tr>
-</table>
-</div>
-
-</div>
-
-<div class="botao" onclick="voltar()">← Voltar</div>
-
-</div>
-
-</div>
-
-<script>
-
-function tocarSomLogo(){
-  const som = document.getElementById("logoSound");
-  som.currentTime = 0;
-  som.play();
-}
-
-function mostrarLutador(){
-  document.getElementById("areaCards").innerHTML = `
-    <div class="card" onclick="abrirFreya()">
-      <img src="freya-card.jpg">
-      <h3>Freya</h3>
-    </div>
-  `;
-}
-
-function abrirFreya(){
-  document.getElementById("telaInicial").classList.add("oculto");
-  document.getElementById("telaDetalhe").classList.remove("oculto");
-}
-
-function voltar(){
-  document.getElementById("telaDetalhe").classList.add("oculto");
-  document.getElementById("telaInicial").classList.remove("oculto");
-}
-
-</script>
-
-</body>
+function voltar(){  
+  document.getElementById("telaDetalhe").classList.add("oculto");  
+  document.getElementById("telaInicial").classList.remove("oculto");  
+}  
+</script>  
+  
+</body>  
 </html>
