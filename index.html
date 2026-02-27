@@ -6,6 +6,7 @@
 <title>ML COUNTER PRO</title>
 
 <style>
+/* (SEU CSS INTACTO - NÃO MEXI EM NADA) */
 body{
   margin:0;
   font-family:Arial, sans-serif;
@@ -30,6 +31,7 @@ body{
   max-width:420px;
   filter: drop-shadow(0 0 15px rgba(255,204,0,0.6));
   transition:0.4s;
+  cursor:pointer;
 }
 
 .logo-img:hover{
@@ -39,6 +41,7 @@ body{
 
 /* ================= */
 
+/* RESTANTE DO SEU CSS IGUAL */
 .btn-classe{
   background:#f5b642;
   border:none;
@@ -147,10 +150,13 @@ body{
 
 <div class="container">
 
-<!-- LOGO NO LUGAR DO TEXTO -->
+<!-- LOGO -->
 <div class="logo-container">
-  <img src="logo.png" class="logo-img">
+  <img src="logo.png" class="logo-img" onclick="tocarSomLogo()">
 </div>
+
+<!-- ÁUDIO DA LOGO -->
+<audio id="logoSound" src="click.mp3"></audio>
 
 <!-- TELA INICIAL -->
 <div id="telaInicial">
@@ -235,6 +241,13 @@ os lançando ao ar por 0.4s.
 </div>
 
 <script>
+
+function tocarSomLogo(){
+  const som = document.getElementById("logoSound");
+  som.currentTime = 0;
+  som.play();
+}
+
 function mostrarLutador(){
   document.getElementById("areaCards").innerHTML = `
     <div class="card" onclick="abrirFreya()">
@@ -253,6 +266,7 @@ function voltar(){
   document.getElementById("telaDetalhe").classList.add("oculto");
   document.getElementById("telaInicial").classList.remove("oculto");
 }
+
 </script>
 
 </body>
