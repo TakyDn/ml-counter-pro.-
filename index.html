@@ -1,253 +1,325 @@
-<style>
+<!DOCTYPE html>    <html lang="pt-br">    
+<head>    
+<meta charset="UTF-8">    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">    
+<title>ML COUNTER PRO</title>    <style>    
+body{    
+  margin:0;    
+  font-family:Arial, sans-serif;    
+  background:linear-gradient(180deg,#0b0f2a,#11183c);    
+  color:white;    
+  text-align:center;    
+}    
+    
+.container{    
+  max-width:900px;    
+  margin:auto;    
+  padding:20px;    
+}    
+  
+/* ===== MENU LATERAL ===== */  
+  
+.menu-btn{  
+  position:fixed;  
+  top:20px;  
+  left:20px;  
+  font-size:28px;  
+  cursor:pointer;  
+  z-index:1001;  
+}  
+  
+.menu-lateral{  
+  position:fixed;  
+  top:0;  
+  left:-260px;  
+  width:250px;  
+  height:100%;  
+  background:linear-gradient(180deg,#0b0f2a,#11183c);  
+  box-shadow:4px 0 20px rgba(0,0,0,0.6);  
+  padding-top:60px;  
+  transition:0.4s;  
+  z-index:1002;  
+}  
+  
+.menu-lateral.ativo{  
+  left:0;  
+}  
+  
+.menu-lateral a{  
+  display:block;  
+  padding:15px 25px;  
+  text-decoration:none;  
+  color:#cfd8ff;  
+  font-weight:bold;  
+  text-align:left;  
+  transition:0.3s;  
+}  
+  
+.menu-lateral a:hover{  
+  background:rgba(255,255,255,0.08);  
+  color:#f5b642;  
+}  
+  
+.menu-fechar{  
+  position:absolute;  
+  top:15px;  
+  right:20px;  
+  font-size:22px;  
+  cursor:pointer;  
+}  
+  
+.overlay{  
+  position:fixed;  
+  top:0;  
+  left:0;  
+  width:100%;  
+  height:100%;  
+  background:rgba(0,0,0,0.5);  
+  display:none;  
+  z-index:1000;  
+}  
+  
+.overlay.ativo{  
+  display:block;  
+}  
+  
+/* ===== SEU CSS ORIGINAL ===== */  
+  
+.logo-container{    
+  margin-bottom:20px;    
+}    
+    
+.logo-img{    
+  width:90%;    
+  max-width:420px;    
+  filter: drop-shadow(0 0 15px rgba(255,204,0,0.6));    
+  transition:0.4s;    
+  cursor:pointer;    
+}    
+    
+.logo-img:hover{    
+  filter: drop-shadow(0 0 25px rgba(255,204,0,0.9));    
+  transform:scale(1.03);    
+}    
+    
+.btn-classe{    
+  background:#f5b642;    
+  border:none;    
+  padding:12px 25px;    
+  border-radius:30px;    
+  font-weight:bold;    
+  cursor:pointer;    
+  margin:10px;    
+}    
+    
+.card{    
+  background:rgba(255,255,255,0.05);    
+  border-radius:20px;    
+  padding:15px;    
+  margin-top:20px;    
+  cursor:pointer;    
+  display:inline-block;    
+  width:220px;    
+  transition:0.3s;    
+}    
+    
+.card:hover{    
+  transform:scale(1.05);    
+}    
+    
+.card img{    
+  width:100%;    
+  border-radius:15px;    
+}    
+    
+.hero-img{    
+  width:80%;    
+  max-width:350px;    
+  border-radius:20px;    
+  box-shadow:0 0 25px rgba(245,182,66,0.4);    
+}    
+    
+.info-destaque{    
+  color:#f5b642;    
+  font-weight:bold;    
+}    
+    
+.skill-box{    
+  background:rgba(255,255,255,0.05);    
+  padding:20px;    
+  border-radius:20px;    
+  margin-top:20px;    
+  text-align:left;    
+}    
+    
+.dourado{    
+  color:#f5b642;    
+  font-weight:bold;    
+}    
+    
+.vermelho{    
+  color:#ff4d4d;    
+  font-weight:bold;    
+}    
+    
+.tabela-skill{    
+  width:100%;    
+  overflow-x:auto;    
+  margin-top:15px;    
+}    
+    
+.tabela-skill table{    
+  width:100%;    
+  border-collapse:collapse;    
+  min-width:500px;    
+}    
+    
+.tabela-skill th,    
+.tabela-skill td{    
+  padding:8px;    
+  text-align:center;    
+}    
+    
+.tabela-skill th{    
+  background:rgba(255,255,255,0.08);    
+}    
+    
+.tabela-skill tr:nth-child(even){    
+  background:rgba(255,255,255,0.03);    
+}    
+    
+.botao{    
+  display:inline-block;    
+  margin-top:25px;    
+  padding:10px 20px;    
+  background:#f5b642;    
+  color:black;    
+  border-radius:30px;    
+  text-decoration:none;    
+  font-weight:bold;    
+  cursor:pointer;    
+}    
+    
+.oculto{    
+  display:none;    
+}    
+  
+/* BLOQUEIO VISUAL */  
+body, img, h1, h2, h3, p, span, td, th {  
+  -webkit-user-select: none;  
+  -ms-user-select: none;  
+  user-select: none;  
+}  
+img {  
+  -webkit-user-drag: none;  
+  user-drag: none;  
+}  
+* {  
+  -webkit-tap-highlight-color: transparent;  
+}  
+</style>    </head>    <body>    <!-- BOTÃO MENU -->  <div class="menu-btn" onclick="abrirMenu()">☰</div>  <!-- MENU LATERAL -->  <div class="menu-lateral" id="menuLateral">  
+  <div class="menu-fechar" onclick="fecharMenu()">✖</div>  
+  <a href="#">INÍCIO</a>  
+  <a href="#">NOVIDADES</a>  
+  <a href="#">HERÓIS</a>  
+  <a href="#">HERÓIS COUNTERS</a>  
+  <a href="#">EQUIPAMENTOS</a>  
+  <a href="#">SUPORTE</a>  
+</div>  <div class="overlay" id="overlay" onclick="fecharMenu()"></div>  <div class="container">    <div class="logo-container">    
+  <img src="logo.png" class="logo-img" onclick="tocarSomLogo()">    
+</div>    <audio id="logoSound" src="click.mp3"></audio>
 
-/* =========================================
-   RESET
-========================================= */
-
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:linear-gradient(180deg,#0b0f2a,#11183c);
-  color:white;
-  text-align:center;
-}
-
-/* =========================================
-   LAYOUT
-========================================= */
-
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
-  position:relative;
-  z-index:1;
-}
-
-.oculto{
-  display:none;
-}
-
-/* =========================================
-   MENU LATERAL
-========================================= */
-
-.menu-btn{
-  position:fixed;
-  top:20px;
-  left:20px;
-  font-size:28px;
-  cursor:pointer;
-  z-index:2000;
-}
-
-.menu-lateral{
-  position:fixed;
-  top:0;
-  left:-260px;
-  width:250px;
-  height:100%;
-  background:linear-gradient(180deg,#0b0f2a,#11183c);
-  box-shadow:4px 0 20px rgba(0,0,0,0.6);
-  padding-top:60px;
-  transition:0.4s;
-  z-index:3000;
-}
-
-.menu-lateral.ativo{
-  left:0;
-}
-
-.menu-lateral a{
-  display:block;
-  padding:15px 25px;
-  text-decoration:none;
-  color:#cfd8ff;
-  font-weight:bold;
-  text-align:left;
-  transition:0.3s;
-}
-
-.menu-lateral a:hover{
-  background:rgba(255,255,255,0.08);
-  color:#f5b642;
-}
-
-.menu-fechar{
-  position:absolute;
-  top:15px;
-  right:20px;
-  font-size:22px;
-  cursor:pointer;
-}
-
-.overlay{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  display:none;
-  z-index:2500;
-}
-
-.overlay.ativo{
-  display:block;
-}
-
-/* =========================================
-   LOGO
-========================================= */
-
-.logo-container{
-  margin-bottom:20px;
-}
-
-.logo-img{
-  width:90%;
-  max-width:420px;
-  filter: drop-shadow(0 0 15px rgba(255,204,0,0.6));
-  transition:0.4s;
-  cursor:pointer;
-}
-
-.logo-img:hover{
-  filter: drop-shadow(0 0 25px rgba(255,204,0,0.9));
-  transform:scale(1.03);
-}
-
-/* =========================================
-   BOTÕES
-========================================= */
-
-.btn-classe{
-  background:#f5b642;
-  border:none;
-  padding:12px 25px;
-  border-radius:30px;
-  font-weight:bold;
-  cursor:pointer;
-  margin:10px;
-}
-
-.botao{
-  display:inline-block;
-  margin-top:25px;
-  padding:10px 20px;
-  background:#f5b642;
-  color:black;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-/* =========================================
-   CARDS
-========================================= */
-
-.card{
-  background:rgba(255,255,255,0.05);
-  border-radius:20px;
-  padding:15px;
-  margin-top:20px;
-  cursor:pointer;
-  display:inline-block;
-  width:220px;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:scale(1.05);
-}
-
-.card img{
-  width:100%;
-  border-radius:15px;
-}
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero-img{
-  width:80%;
-  max-width:350px;
-  border-radius:20px;
-  box-shadow:0 0 25px rgba(245,182,66,0.4);
-}
-
-/* =========================================
-   SKILLS
-========================================= */
-
-.skill-box{
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:20px;
-  margin-top:20px;
-  text-align:left;
-}
-
-.info-destaque,
-.dourado{
-  color:#f5b642;
-  font-weight:bold;
-}
-
-.vermelho{
-  color:#ff4d4d;
-  font-weight:bold;
-}
-
-/* =========================================
-   TABELA
-========================================= */
-
-.tabela-skill{
-  width:100%;
-  overflow-x:auto;
-  margin-top:15px;
-}
-
-.tabela-skill table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:500px;
-}
-
-.tabela-skill th,
-.tabela-skill td{
-  padding:8px;
-  text-align:center;
-}
-
-.tabela-skill th{
-  background:rgba(255,255,255,0.08);
-}
-
-.tabela-skill tr:nth-child(even){
-  background:rgba(255,255,255,0.03);
-}
-
-/* =========================================
-   BLOQUEIO VISUAL
-========================================= */
-
-body, img, h1, h2, h3, p, span, td, th{
-  -webkit-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
-}
-
-img{
-  -webkit-user-drag:none;
-  user-drag:none;
-}
-
-*{
-  -webkit-tap-highlight-color:transparent;
-}
-
-   </style>
+<div id="telaInicial">    
+<h2>Escolha uma Classe</h2>    
+<button class="btn-classe" onclick="mostrarLutador()">⚔ Lutador</button>    
+<div id="areaCards"></div>    
+</div>    <div id="telaDetalhe" class="oculto">    
+<img src="freya-detalhe.jpg" class="hero-img">    <p><span class="info-destaque">Classe:</span>    
+<span class="info-destaque">Lutador</span></p>    <p><span class="info-destaque">Rota:</span>    
+<span class="info-destaque">EXP Lane</span></p>    <div class="skill-box">    
+<h2>🔥 <span class="dourado">Skill 1 –</span> <span class="dourado">Salto da Fé</span></h2>    <p>    
+Freya salta para a área designada e atinge o chão com seu escudo,    
+ganhando 500 <span class="dourado">(+100% do Ataque Físico Total)</span>    
+de escudo e causando 200    
+<span class="dourado">(+80% do Ataque Físico Adicional)</span>    
+de <span class="vermelho">Dano Físico</span> aos inimigos dentro da área,    
+os lançando ao ar por 0.4s.    
+</p>    <div class="tabela-skill">  
+<table>  
+<tr>  
+<th></th>  
+<th style="color:#f5b642;font-weight:bold;">Nv.1</th>  
+<th style="color:#f5b642;font-weight:bold;">Nv.2</th>  
+<th style="color:#f5b642;font-weight:bold;">Nv.3</th>  
+<th style="color:#f5b642;font-weight:bold;">Nv.4</th>  
+<th style="color:#f5b642;font-weight:bold;">Nv.5</th>  
+<th style="color:#f5b642;font-weight:bold;">Nv.6</th>  
+</tr>  
+<tr>  
+<td><b style="color:#f5b642;">Tempo de Recarga</b></td>  
+<td>8.0s</td><td>7.6s</td><td>7.2s</td><td>6.8s</td><td>6.4s</td><td>6.0s</td>  
+</tr>  
+<tr>  
+<td><b style="color:#f5b642;">Escudo</b></td>  
+<td style="color:#00BFFF;font-weight:bold;">500</td>  
+<td style="color:#00BFFF;font-weight:bold;">580</td>  
+<td style="color:#00BFFF;font-weight:bold;">660</td>  
+<td style="color:#00BFFF;font-weight:bold;">740</td>  
+<td style="color:#00BFFF;font-weight:bold;">820</td>  
+<td style="color:#00BFFF;font-weight:bold;">900</td>  
+</tr>  
+<tr>  
+<td><b style="color:#f5b642;">Dano Base</b></td>  
+<td style="color:#ff4d4d;font-weight:bold;">200</td>  
+<td style="color:#ff4d4d;font-weight:bold;">220</td>  
+<td style="color:#ff4d4d;font-weight:bold;">240</td>  
+<td style="color:#ff4d4d;font-weight:bold;">260</td>  
+<td style="color:#ff4d4d;font-weight:bold;">280</td>  
+<td style="color:#ff4d4d;font-weight:bold;">300</td>  
+</tr>  
+</table>  
+</div>  </div>    
+<div class="botao" onclick="voltar()">← Voltar</div>    
+</div>    </div>    <script>    
+  
+function abrirMenu(){  
+  document.getElementById("menuLateral").classList.add("ativo");  
+  document.getElementById("overlay").classList.add("ativo");  
+}  
+  
+function fecharMenu(){  
+  document.getElementById("menuLateral").classList.remove("ativo");  
+  document.getElementById("overlay").classList.remove("ativo");  
+}  
+  
+function tocarSomLogo(){    
+  const som = document.getElementById("logoSound");    
+  som.currentTime = 0;    
+  som.play();    
+}    
+  
+function mostrarLutador(){    
+  document.getElementById("areaCards").innerHTML = `    
+    <div class="card" onclick="abrirFreya()">    
+      <img src="freya-card.jpg">    
+      <h3>Freya</h3>    
+    </div>    
+  `;    
+}    
+  
+function abrirFreya(){    
+  document.getElementById("telaInicial").classList.add("oculto");    
+  document.getElementById("telaDetalhe").classList.remove("oculto");    
+}    
+  
+function voltar(){    
+  document.getElementById("telaDetalhe").classList.add("oculto");    
+  document.getElementById("telaInicial").classList.remove("oculto");    
+}    
+  
+document.addEventListener("contextmenu", function(e){  
+  e.preventDefault();  
+});  
+  
+</script>    </body>    
+   </html>
