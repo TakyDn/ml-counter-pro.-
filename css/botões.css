@@ -1,0 +1,25 @@
+/* ===================================================
+   BOTÕES
+=================================================== */
+
+.btn-classe {
+  background: #f5b642;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.botao {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 20px;
+  background: #f5b642;
+  color: black;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
