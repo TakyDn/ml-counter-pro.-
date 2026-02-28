@@ -1,0 +1,23 @@
+/* ===================================================
+   HERÓIS - CARDS
+=================================================== */
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+  display: inline-block;
+  width: 220px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px;
+}
