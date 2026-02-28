@@ -1,1 +1,255 @@
-PASTA
+/* ===================================================
+   RESET & BASE GLOBAL
+=================================================== */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #0b0f2a, #11183c);
+  color: white;
+  text-align: center;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ===================================================
+   MENU LATERAL
+=================================================== */
+
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(180deg, #0b0f2a, #11183c);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
+  padding-top: 60px;
+  transition: 0.4s;
+  z-index: 1002;
+}
+
+.menu-lateral.ativo {
+  left: 0;
+}
+
+.menu-lateral a {
+  display: block;
+  padding: 15px 25px;
+  text-decoration: none;
+  color: #cfd8ff;
+  font-weight: bold;
+  text-align: left;
+  transition: 0.3s;
+}
+
+.menu-lateral a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f5b642;
+}
+
+.menu-fechar {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1000;
+}
+
+.overlay.ativo {
+  display: block;
+}
+
+/* ===================================================
+   LOGO
+=================================================== */
+
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  width: 90%;
+  max-width: 420px;
+  filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.6));
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.logo-img:hover {
+  filter: drop-shadow(0 0 25px rgba(255, 204, 0, 0.9));
+  transform: scale(1.03);
+}
+
+/* ===================================================
+   BOTÕES
+=================================================== */
+
+.btn-classe {
+  background: #f5b642;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.botao {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 20px;
+  background: #f5b642;
+  color: black;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ===================================================
+   HERÓIS - CARDS
+=================================================== */
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+  display: inline-block;
+  width: 220px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* ===================================================
+   HERÓIS - DETALHES
+=================================================== */
+
+.hero-img {
+  width: 80%;
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(245, 182, 66, 0.4);
+}
+
+.info-destaque {
+  color: #f5b642;
+  font-weight: bold;
+}
+
+.skill-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.dourado {
+  color: #f5b642;
+  font-weight: bold;
+}
+
+.vermelho {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+/* ===================================================
+   TABELA DE SKILLS
+=================================================== */
+
+.tabela-skill {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+.tabela-skill table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+.tabela-skill th,
+.tabela-skill td {
+  padding: 8px;
+  text-align: center;
+}
+
+.tabela-skill th {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tabela-skill tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ===================================================
+   UTILIDADES
+=================================================== */
+
+.oculto {
+  display: none;
+}
+
+/* ===================================================
+   BLOQUEIO VISUAL / PROTEÇÃO
+=================================================== */
+
+body,
+img,
+h1,
+h2,
+h3,
+p,
+span,
+td,
+th {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  }
