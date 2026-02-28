@@ -15,3 +15,45 @@ body {
   margin: auto;
   padding: 20px;
 }
+
+/* ===================================================
+   RESPONSIVIDADE & AJUSTES VISUAIS
+=================================================== */
+
+.hero-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  font-size: 13px;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 6px;
+}
