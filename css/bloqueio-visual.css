@@ -1,0 +1,26 @@
+/* ===================================================
+   BLOQUEIO VISUAL / PROTEÇÃO
+=================================================== */
+
+body,
+img,
+h1,
+h2,
+h3,
+p,
+span,
+td,
+th {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
