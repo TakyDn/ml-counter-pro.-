@@ -1,0 +1,33 @@
+/* ===================================================
+   HERÓIS - DETALHES
+=================================================== */
+
+.hero-img {
+  width: 80%;
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(245, 182, 66, 0.4);
+}
+
+.info-destaque {
+  color: #f5b642;
+  font-weight: bold;
+}
+
+.skill-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.dourado {
+  color: #f5b642;
+  font-weight: bold;
+}
+
+.vermelho {
+  color: #ff4d4d;
+  font-weight: bold;
+}
