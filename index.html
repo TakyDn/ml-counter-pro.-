@@ -124,17 +124,24 @@ os lançando ao ar por 0.4s.
 const falasMenu = [
 `Ah… o menu.
 Finalmente decidiu pensar antes de agir. Eu estava começando a me preocupar.`,
-
 `Interessante… procurando vantagem antes da batalha.
 Gosto quando você aprende rápido.`,
-
 `Planejamento. Finalmente.
 Vitórias começam aqui — não no impulso.`
 ];
 
+/* ===== ATIVAR NOX ===== */
+function ativarNox(){
+  const indice = Math.floor(Math.random() * falasMenu.length);
+  const falaEscolhida = falasMenu[indice];
+  document.getElementById("noxFala").innerText = falaEscolhida;
+  document.getElementById("noxContainer").classList.add("active");
+}
+
 function abrirMenu(){
   document.getElementById("menuLateral").classList.add("ativo");
   document.getElementById("overlay").classList.add("ativo");
+  ativarNox();
 }
 
 function fecharMenu(){
