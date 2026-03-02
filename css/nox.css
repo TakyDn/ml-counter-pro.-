@@ -1,0 +1,29 @@
+.nox-container {
+  position: fixed;
+  bottom: 20px;
+  right: -400px; /* começa escondido fora da tela */
+  width: 280px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  transition: right 0.4s ease;
+  z-index: 999;
+}
+
+.nox-container.active {
+  right: 20px; /* aparece quando ativado */
+}
+
+.nox-img {
+  width: 110px;
+}
+
+.nox-box {
+  background: #11183c;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  max-width: 170px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
