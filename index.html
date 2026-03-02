@@ -114,6 +114,18 @@ os lançando ao ar por 0.4s.
 
 <script>
 
+/* ===== FALAS OFICIAIS DO NOX ===== */
+const falasMenu = [
+`Ah… o menu.
+Finalmente decidiu pensar antes de agir. Eu estava começando a me preocupar.`,
+
+`Interessante… procurando vantagem antes da batalha.
+Gosto quando você aprende rápido.`,
+
+`Planejamento. Finalmente.
+Vitórias começam aqui — não no impulso.`
+];
+
 function abrirMenu(){
   document.getElementById("menuLateral").classList.add("ativo");
   document.getElementById("overlay").classList.add("ativo");
@@ -122,6 +134,7 @@ function abrirMenu(){
 function fecharMenu(){
   document.getElementById("menuLateral").classList.remove("ativo");
   document.getElementById("overlay").classList.remove("ativo");
+  document.getElementById("noxContainer").classList.remove("active");
 }
 
 function irInicio(){
