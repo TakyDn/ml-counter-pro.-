@@ -1,17 +1,21 @@
+/* ===================================================
+   NOX ASSISTENTE
+=================================================== */
+
 .nox-container {
   position: fixed;
-  bottom: 20px;
-  right: -400px; /* começa escondido fora da tela */
+  top: 20px;              /* agora fica na parte superior */
+  right: -400px;          /* começa escondido fora da tela */
   width: 280px;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 10px;
   transition: right 0.4s ease;
   z-index: 999;
 }
 
 .nox-container.active {
-  right: 20px; /* aparece quando ativado */
+  right: 20px;            /* aparece quando ativado */
 }
 
 .nox-img {
