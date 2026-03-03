@@ -22,14 +22,10 @@
 <!-- BLOQUEIO ORIENTAÇÃO NOX -->
 <div id="bloqueio-orientacao">
   <div class="orientacao-container">
-    
     <img src="img-nox/nox-orientacao.png" class="nox-orientacao">
-
     <h2>Campo de visão comprometido.</h2>
     <p>Vire o dispositivo.<br>Vitórias exigem perspectiva.</p>
-
     <div class="icone-rotacao"></div>
-
   </div>
 </div>
 
@@ -41,7 +37,7 @@
   <div class="menu-fechar" onclick="fecharMenu()">✖</div>
   <a href="#" onclick="irInicio()">INÍCIO</a>
   <a href="#">NOVIDADES</a>
-  <a href="#">HERÓIS</a>
+  <a href="#" onclick="abrirHerois()">HERÓIS</a>
   <a href="#">HERÓIS COUNTERS</a>
   <a href="#">EQUIPAMENTOS</a>
   <a href="#">SUPORTE</a>
@@ -57,12 +53,18 @@
 
 <audio id="logoSound" src="click.mp3"></audio>
 
+<!-- TELA INICIAL (AGORA LIMPA) -->
 <div id="telaInicial">
-<h2>Escolha uma Classe</h2>
-<button class="btn-classe" onclick="mostrarLutador()">⚔ Lutador</button>
-<div id="areaCards"></div>
 </div>
 
+<!-- TELA HERÓIS -->
+<div id="telaHerois" class="oculto">
+  <h2>Escolha uma Classe</h2>
+  <button class="btn-classe" onclick="mostrarLutador()">⚔ Lutador</button>
+  <div id="areaCards"></div>
+</div>
+
+<!-- TELA DETALHE -->
 <div id="telaDetalhe" class="oculto">
 <img src="freya-detalhe.jpg" class="hero-img">
 
@@ -120,7 +122,6 @@ os lançando ao ar por 0.4s.
 </table>
 </div>
 
-</div>
 <div class="botao" onclick="voltar()">← Voltar</div>
 </div>
 
@@ -165,8 +166,16 @@ function fecharMenu(){
 }
 
 function irInicio(){
+  document.getElementById("telaHerois").classList.add("oculto");
   document.getElementById("telaDetalhe").classList.add("oculto");
   document.getElementById("telaInicial").classList.remove("oculto");
+  fecharMenu();
+}
+
+function abrirHerois(){
+  document.getElementById("telaInicial").classList.add("oculto");
+  document.getElementById("telaDetalhe").classList.add("oculto");
+  document.getElementById("telaHerois").classList.remove("oculto");
   fecharMenu();
 }
 
@@ -186,13 +195,13 @@ function mostrarLutador(){
 }
 
 function abrirFreya(){
-  document.getElementById("telaInicial").classList.add("oculto");
+  document.getElementById("telaHerois").classList.add("oculto");
   document.getElementById("telaDetalhe").classList.remove("oculto");
 }
 
 function voltar(){
   document.getElementById("telaDetalhe").classList.add("oculto");
-  document.getElementById("telaInicial").classList.remove("oculto");
+  document.getElementById("telaHerois").classList.remove("oculto");
 }
 
 document.addEventListener("contextmenu", function(e){
@@ -202,4 +211,4 @@ document.addEventListener("contextmenu", function(e){
 </script>
 
 </body>
-</html>
+  </html>
