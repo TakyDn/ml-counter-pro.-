@@ -1,33 +1,94 @@
 /* ===================================================
-   NOX ASSISTENTE
+   NOX ASSISTENTE - NÍVEL ABSURDO
 =================================================== */
 
 .nox-container {
   position: fixed;
-  top: 15px;
-  right: -350px;
-  width: 260px;
+  right: 25px;
+  bottom: 35px;
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  transition: right 0.4s ease;
-  z-index: 999;
+  align-items: flex-end;
+  gap: 15px;
+  z-index: 9998;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.5s ease;
 }
 
 .nox-container.active {
-  right: 10px;
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
+
+/* IMAGEM NOX */
 
 .nox-img {
-  width: 90px;
+  width: 140px;
+  filter:
+    brightness(1.2)
+    drop-shadow(0 0 20px rgba(255, 200, 0, 1))
+    drop-shadow(0 0 40px rgba(255, 150, 0, 0.7));
+  animation: flutuarNox 3s ease-in-out infinite;
 }
 
+/* FLUTUAÇÃO */
+
+@keyframes flutuarNox {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* CAIXA */
+
 .nox-box {
-  background: rgba(17, 24, 60, 0.95); /* mais opaco */
+  max-width: 280px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: rgba(8, 18, 60, 0.96);
+  backdrop-filter: blur(8px);
   color: #ffffff;
-  padding: 14px;
-  border-radius: 14px;
-  font-size: 13px;
-  max-width: 160px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  font-size: 15px;
+  line-height: 1.5;
+  position: relative;
+  border: 2px solid #00aaff;
+  overflow: hidden;
+}
+
+/* BORDA ENERGIA */
+
+.nox-box::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(90deg, #00aaff, #00f0ff, #00aaff);
+  background-size: 300% 300%;
+  animation: energiaBorda 3s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes energiaBorda {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* PONTA */
+
+.nox-box::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  bottom: 25px;
+  width: 20px;
+  height: 20px;
+  background: rgba(8, 18, 60, 0.96);
+  border-left: 2px solid #00aaff;
+  border-bottom: 2px solid #00aaff;
+  transform: rotate(45deg);
 }
