@@ -4,9 +4,9 @@
 
 .nox-container {
   position: fixed;
-  top: 20px;              /* agora fica na parte superior */
-  right: -400px;          /* começa escondido fora da tela */
-  width: 280px;
+  top: 15px;
+  right: -350px;
+  width: 260px;
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -15,19 +15,19 @@
 }
 
 .nox-container.active {
-  right: 20px;            /* aparece quando ativado */
+  right: 10px;
 }
 
 .nox-img {
-  width: 110px;
+  width: 90px;
 }
 
 .nox-box {
-  background: #11183c;
-  color: white;
-  padding: 12px;
-  border-radius: 12px;
-  font-size: 14px;
-  max-width: 170px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  background: rgba(17, 24, 60, 0.95); /* mais opaco */
+  color: #ffffff;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 13px;
+  max-width: 160px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
 }
