@@ -1,24 +1,21 @@
 /* ===================================================
-LOGO FIXA NO CANTO SUPERIOR DIREITO
+LOGO FIXA NO TOPO
 =================================================== */
 
-.logo-container{
-position: fixed !important;
-top: 10px !important;
-right: 20px !important;
-z-index: 9999 !important;
-margin: 0 !important;
-padding: 0 !important;
+.logo-container-top{
+position: fixed;
+top: 15px;
+right: 20px;
+z-index: 1005;
 }
 
-.logo-img{
-width: 110px !important;
-max-width: 110px !important;
+.logo-top{
+width: 110px;
 cursor: pointer;
 transition: 0.3s;
 filter: drop-shadow(0 0 10px rgba(255,200,0,0.6));
 }
 
-.logo-img:hover{
+.logo-top:hover{
 transform: scale(1.05);
 }
