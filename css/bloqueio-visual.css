@@ -1,93 +1,101 @@
-/* BLOQUEAR SELEÇÃO GLOBAL */
-*{
--webkit-user-select:none;
--moz-user-select:none;
--ms-user-select:none;
-user-select:none;
+/* ===================================================
+BLOQUEIO VISUAL / PROTEÇÃO
+=================================================== */
 
--webkit-user-drag:none;
-user-drag:none;
-
--webkit-tap-highlight-color:transparent;
+body,
+img,
+h1,
+h2,
+h3,
+p,
+span,
+td,
+th {
+-webkit-user-select: none;
+-ms-user-select: none;
+user-select: none;
 }
 
-/* TELA DE BLOQUEIO ORIENTAÇÃO */
-
-#bloqueio-orientacao{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(180deg,#0a0f2c,#050816);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-z-index:9999;
-padding:20px;
+img {
+-webkit-user-drag: none;
+user-drag: none;
 }
 
-/* NOX CENTRAL BLOQUEIO */
-
-.nox-orientacao{
-width:140px;
-margin-bottom:20px;
-
-animation:flutuarNox 3s ease-in-out infinite;
-
-filter:drop-shadow(0 0 10px rgba(245,182,66,0.8))
-drop-shadow(0 0 25px rgba(245,182,66,0.6));
+{
+-webkit-tap-highlight-color: transparent;
 }
 
-/* TEXTO */
 
-.texto-orientacao{
-font-size:18px;
-max-width:320px;
-line-height:1.5;
+/* ===================================================
+BLOQUEIO ORIENTAÇÃO - NOX
+=================================================== */
+
+#bloqueio-orientacao {
+display: none;
+position: fixed;
+inset: 0;
+background: linear-gradient(180deg, #0b0f2a, #11183c);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 20px;
+animation: fadeIn 0.4s ease;
 }
 
-/* ÍCONE DE ROTAÇÃO */
-
-.icone-rotacao{
-width:60px;
-margin-top:20px;
-
-animation:girar 2.5s linear infinite;
+.orientacao-container {
+max-width: 420px;
 }
 
-/* ANIMAÇÃO ROTAÇÃO */
-
-@keyframes girar{
-
-0%{
-transform:rotate(0deg);
+.nox-orientacao {
+width: 220px;
+margin-bottom: 25px;
+filter: drop-shadow(0 0 30px rgba(255, 204, 0, 0.85));
+animation: flutuar 3s ease-in-out infinite;
 }
 
-100%{
-transform:rotate(360deg);
+.orientacao-container h2 {
+color: #ffcc00;
+margin-bottom: 10px;
+font-weight: 600;
 }
 
+.orientacao-container p {
+color: #ffffff;
+opacity: 0.9;
 }
 
-/* MOSTRAR BLOQUEIO APENAS EM RETRATO */
-
-@media screen and (orientation:portrait){
-
-#bloqueio-orientacao{
-display:flex;
+.icone-rotacao {
+width: 65px;
+height: 65px;
+margin: 30px auto 0;
+border: 4px solid #ffcc00;
+border-top: 4px solid transparent;
+border-radius: 50%;
+animation: girar 1.2s linear infinite;
 }
 
+/* ANIMAÇÕES */
+
+@keyframes girar {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
 }
 
-/* ESCONDER BLOQUEIO EM PAISAGEM */
-
-@media screen and (orientation:landscape){
-
-#bloqueio-orientacao{
-display:none;
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
 }
 
+@keyframes flutuar {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-8px); }
+100% { transform: translateY(0px); }
+}
+
+/* MOSTRAR APENAS EM RETRATO */
+@media screen and (orientation: portrait) {
+#bloqueio-orientacao {
+display: flex;
+}
 }
