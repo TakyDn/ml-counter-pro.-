@@ -1,179 +1,406 @@
-<!DOCTYPE html>  <html lang="pt-br">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>ML COUNTER PRO</title>  <link rel="stylesheet" href="css/base.css">  
-<link rel="stylesheet" href="css/bloqueio-visual.css">  
-<link rel="stylesheet" href="css/botões.css">  
-<link rel="stylesheet" href="css/heróis-cards.css">  
-<link rel="stylesheet" href="css/heróis-detalhes.css">  
-<link rel="stylesheet" href="css/logo.css">  
-<link rel="stylesheet" href="css/menu-lateral.css">  
-<link rel="stylesheet" href="css/nox.css">  
-<link rel="stylesheet" href="css/ocultar.css">  </head>  <body>  <!-- BLOQUEIO ORIENTAÇÃO NOX -->  <div id="bloqueio-orientacao">  
-  <div class="orientacao-container">  
-    <img src="img-nox/nox-orientacao.png" class="nox-orientacao">  
-    <h2>Campo de visão comprometido.</h2>  
-    <p>Vire o dispositivo.<br>Vitórias exigem perspectiva.</p>  
-    <div class="icone-rotacao"></div>  
-  </div>  
-</div>  <!-- BOTÃO MENU -->  <div class="menu-btn" onclick="abrirMenu()">☰</div>  <!-- MENU LATERAL -->  <div class="menu-lateral" id="menuLateral">  
-  <div class="menu-fechar" onclick="fecharMenu()">✖</div>  
-  <a href="#" onclick="irInicio()">INÍCIO</a>  
-  <a href="#">NOVIDADES</a>  
-  <a href="#" onclick="abrirHerois()">HERÓIS</a>  
-  <a href="#">HERÓIS COUNTERS</a>  
-  <a href="#">EQUIPAMENTOS</a>  
-  <a href="#">SUPORTE</a>  
-</div>  <div class="overlay" id="overlay" onclick="fecharMenu()"></div>  <div class="container">  <div class="logo-container">  
-  <img src="logo.png" class="logo-img" onclick="tocarSomLogo()">  
-</div>  <audio id="logoSound" src="click.mp3"></audio>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<!-- TELA INICIAL (AGORA LIMPA) -->  <div id="telaInicial">  
-</div>  <!-- TELA HERÓIS -->  <div id="telaHerois" class="oculto">  
-  <h2>Escolha uma Classe</h2>  
-  <button class="btn-classe" onclick="mostrarLutador()">⚔ Lutador</button>  
-  <div id="areaCards"></div>  
-</div>  <!-- TELA DETALHE -->  <div id="telaDetalhe" class="oculto">  
-<img src="freya-detalhe.jpg" class="hero-img">  <p><span class="info-destaque">Classe:</span>  
-<span class="info-destaque">Lutador</span></p>  <p><span class="info-destaque">Rota:</span>  
-<span class="info-destaque">EXP Lane</span></p>  <div class="skill-box">  
-<h2>🔥 <span class="dourado">Skill 1 –</span> <span class="dourado">Salto da Fé</span></h2>  <p>  
-Freya salta para a área designada e atinge o chão com seu escudo,  
-ganhando 500 <span class="dourado">(+100% do Ataque Físico Total)</span>  
-de escudo e causando 200  
-<span class="dourado">(+80% do Ataque Físico Adicional)</span>  
-de <span class="vermelho">Dano Físico</span> aos inimigos dentro da área,  
-os lançando ao ar por 0.4s.  
-</p>  <div class="tabela-skill">  
-<table>  
-<tr>  
-<th></th>  
-<th style="color:#f5b642;font-weight:bold;">Nv.1</th>  
-<th style="color:#f5b642;font-weight:bold;">Nv.2</th>  
-<th style="color:#f5b642;font-weight:bold;">Nv.3</th>  
-<th style="color:#f5b642;font-weight:bold;">Nv.4</th>  
-<th style="color:#f5b642;font-weight:bold;">Nv.5</th>  
-<th style="color:#f5b642;font-weight:bold;">Nv.6</th>  
-</tr>  
-<tr>  
-<td><b style="color:#f5b642;">Tempo de Recarga</b></td>  
-<td>8.0s</td><td>7.6s</td><td>7.2s</td><td>6.8s</td><td>6.4s</td><td>6.0s</td>  
-</tr>  
-<tr>  
-<td><b style="color:#f5b642;">Escudo</b></td>  
-<td style="color:#00BFFF;font-weight:bold;">500</td>  
-<td style="color:#00BFFF;font-weight:bold;">580</td>  
-<td style="color:#00BFFF;font-weight:bold;">660</td>  
-<td style="color:#00BFFF;font-weight:bold;">740</td>  
-<td style="color:#00BFFF;font-weight:bold;">820</td>  
-<td style="color:#00BFFF;font-weight:bold;">900</td>  
-</tr>  
-<tr>  
-<td><b style="color:#f5b642;">Dano Base</b></td>  
-<td style="color:#ff4d4d;font-weight:bold;">200</td>  
-<td style="color:#ff4d4d;font-weight:bold;">220</td>  
-<td style="color:#ff4d4d;font-weight:bold;">240</td>  
-<td style="color:#ff4d4d;font-weight:bold;">260</td>  
-<td style="color:#ff4d4d;font-weight:bold;">280</td>  
-<td style="color:#ff4d4d;font-weight:bold;">300</td>  
-</tr>  
-</table>  
-</div>  <div class="botao" onclick="voltar()">← Voltar</div>  
-</div>  </div>  <!-- NOX ASSISTENTE -->  <div class="nox-container" id="noxContainer">  
-  <img src="img-nox/nox-duvida.png" class="nox-img" alt="NOX">  
-  <div class="nox-box" id="noxFala"></div>  
-</div>  <script>  
-  
-/* ===== FALAS OFICIAIS DO NOX ===== */  
-const falasMenu = [  
-`Ah… o menu.  
-Finalmente decidiu pensar antes de agir. Eu estava começando a me preocupar.`,  
-`Interessante… procurando vantagem antes da batalha.  
-Gosto quando você aprende rápido.`,  
-`Planejamento. Finalmente.  
-Vitórias começam aqui — não no impulso.`  
-];  
-  
-/* ===== ATIVAR NOX ===== */  
-function ativarNox(){  
-  const indice = Math.floor(Math.random() * falasMenu.length);  
-  const falaEscolhida = falasMenu[indice];  
-  
-  const box = document.getElementById("noxFala");  
-  const container = document.getElementById("noxContainer");  
-  
-  container.classList.add("active");  
-  
-  box.innerHTML = "";  
-  
-  let i = 0;  
-  
-  function digitar(){  
-    if(i < falaEscolhida.length){  
-      box.innerHTML += falaEscolhida[i] === "\n" ? "<br>" : falaEscolhida[i];  
-      i++;  
-      setTimeout(digitar, 22);  
-    }  
-  }  
-  
-  digitar();  
-}  
-  
-function abrirMenu(){  
-  document.getElementById("menuLateral").classList.add("ativo");  
-  document.getElementById("overlay").classList.add("ativo");  
-  ativarNox();  
-}  
-  
-function fecharMenu(){  
-  document.getElementById("menuLateral").classList.remove("ativo");  
-  document.getElementById("overlay").classList.remove("ativo");  
-  document.getElementById("noxContainer").classList.remove("active");  
-}  
-  
-function irInicio(){  
-  document.getElementById("telaHerois").classList.add("oculto");  
-  document.getElementById("telaDetalhe").classList.add("oculto");  
-  document.getElementById("telaInicial").classList.remove("oculto");  
-  fecharMenu();  
-}  
-  
-function abrirHerois(){  
-  document.getElementById("telaInicial").classList.add("oculto");  
-  document.getElementById("telaDetalhe").classList.add("oculto");  
-  document.getElementById("telaHerois").classList.remove("oculto");  
-  fecharMenu();  
-}  
-  
-function tocarSomLogo(){  
-  const som = document.getElementById("logoSound");  
-  som.currentTime = 0;  
-  som.play();  
-}  
-  
-function mostrarLutador(){  
-  document.getElementById("areaCards").innerHTML = `  
-    <div class="card" onclick="abrirFreya()">  
-      <img src="freya-card.jpg">  
-      <h3>Freya</h3>  
-    </div>  
-  `;  
-}  
-  
-function abrirFreya(){  
-  document.getElementById("telaHerois").classList.add("oculto");  
-  document.getElementById("telaDetalhe").classList.remove("oculto");  
-}  
-  
-function voltar(){  
-  document.getElementById("telaDetalhe").classList.add("oculto");  
-  document.getElementById("telaHerois").classList.remove("oculto");  
-}  
-  
-document.addEventListener("contextmenu", function(e){  
-  e.preventDefault();  
-});  
-  
-</script>  </body>  
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ML COUNTER PRO</title>
+
+<!-- CSS PRINCIPAIS -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/bloqueio-visual.css">
+<link rel="stylesheet" href="css/botões.css">
+<link rel="stylesheet" href="css/heróis-cards.css">
+<link rel="stylesheet" href="css/heróis-detalhes.css">
+<link rel="stylesheet" href="css/logo.css">
+<link rel="stylesheet" href="css/menu-lateral.css">
+<link rel="stylesheet" href="css/nox.css">
+<link rel="stylesheet" href="css/ocultar.css">
+
+</head>
+
+<body>
+
+<!-- ================================= -->
+<!-- BLOQUEIO DE ORIENTAÇÃO -->
+<!-- ================================= -->
+
+<div id="bloqueio-orientacao">
+
+  <div class="orientacao-container">
+
+    <img src="img-nox/nox-orientacao.png" class="nox-orientacao">
+
+    <h2>Campo de visão comprometido.</h2>
+
+    <p>
+      Vire o dispositivo.<br>
+      Vitórias exigem perspectiva.
+    </p>
+
+    <div class="icone-rotacao"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ================================= -->
+<!-- BOTÃO MENU -->
+<!-- ================================= -->
+
+<div class="menu-btn" onclick="abrirMenu()">☰</div>
+
+
+<!-- ================================= -->
+<!-- MENU LATERAL -->
+<!-- ================================= -->
+
+<div class="menu-lateral" id="menuLateral">
+
+  <div class="menu-fechar" onclick="fecharMenu()">✖</div>
+
+  <a href="#" onclick="irInicio()">INÍCIO</a>
+  <a href="#">NOVIDADES</a>
+  <a href="#" onclick="abrirHerois()">HERÓIS</a>
+  <a href="#">HERÓIS COUNTERS</a>
+  <a href="#">EQUIPAMENTOS</a>
+  <a href="#">SUPORTE</a>
+
+</div>
+
+<div class="overlay" id="overlay" onclick="fecharMenu()"></div>
+
+
+<!-- ================================= -->
+<!-- CONTAINER PRINCIPAL -->
+<!-- ================================= -->
+
+<div class="container">
+
+
+<!-- ================================= -->
+<!-- LOGO -->
+<!-- ================================= -->
+
+<div class="logo-container">
+  <img src="logo.png" class="logo-img" onclick="tocarSomLogo()">
+</div>
+
+<audio id="logoSound" src="click.mp3"></audio>
+
+
+<!-- ================================= -->
+<!-- TELA INICIAL -->
+<!-- ================================= -->
+
+<div id="telaInicial"></div>
+
+
+<!-- ================================= -->
+<!-- TELA HERÓIS -->
+<!-- ================================= -->
+
+<div id="telaHerois" class="oculto">
+
+  <h2>Escolha uma Classe</h2>
+
+  <button class="btn-classe" onclick="mostrarLutador()">
+    ⚔ Lutador
+  </button>
+
+  <div id="areaCards"></div>
+
+</div>
+
+
+<!-- ================================= -->
+<!-- TELA DETALHE HERÓI -->
+<!-- ================================= -->
+
+<div id="telaDetalhe" class="oculto">
+
+<img src="freya-detalhe.jpg" class="hero-img">
+
+<p>
+<span class="info-destaque">Classe:</span>
+<span class="info-destaque">Lutador</span>
+</p>
+
+<p>
+<span class="info-destaque">Rota:</span>
+<span class="info-destaque">EXP Lane</span>
+</p>
+
+
+<div class="skill-box">
+
+<h2>
+🔥 <span class="dourado">Skill 1 –</span>
+<span class="dourado">Salto da Fé</span>
+</h2>
+
+
+<p>
+
+Freya salta para a área designada e atinge o chão com seu escudo,
+ganhando 500
+<span class="dourado">(+100% do Ataque Físico Total)</span>
+de escudo e causando 200
+<span class="dourado">(+80% do Ataque Físico Adicional)</span>
+de
+<span class="vermelho">Dano Físico</span>
+aos inimigos dentro da área,
+os lançando ao ar por 0.4s.
+
+</p>
+
+
+<div class="tabela-skill">
+
+<table>
+
+<tr>
+<th></th>
+<th style="color:#f5b642;font-weight:bold;">Nv.1</th>
+<th style="color:#f5b642;font-weight:bold;">Nv.2</th>
+<th style="color:#f5b642;font-weight:bold;">Nv.3</th>
+<th style="color:#f5b642;font-weight:bold;">Nv.4</th>
+<th style="color:#f5b642;font-weight:bold;">Nv.5</th>
+<th style="color:#f5b642;font-weight:bold;">Nv.6</th>
+</tr>
+
+<tr>
+<td><b style="color:#f5b642;">Tempo de Recarga</b></td>
+<td>8.0s</td>
+<td>7.6s</td>
+<td>7.2s</td>
+<td>6.8s</td>
+<td>6.4s</td>
+<td>6.0s</td>
+</tr>
+
+<tr>
+<td><b style="color:#f5b642;">Escudo</b></td>
+<td style="color:#00BFFF;font-weight:bold;">500</td>
+<td style="color:#00BFFF;font-weight:bold;">580</td>
+<td style="color:#00BFFF;font-weight:bold;">660</td>
+<td style="color:#00BFFF;font-weight:bold;">740</td>
+<td style="color:#00BFFF;font-weight:bold;">820</td>
+<td style="color:#00BFFF;font-weight:bold;">900</td>
+</tr>
+
+<tr>
+<td><b style="color:#f5b642;">Dano Base</b></td>
+<td style="color:#ff4d4d;font-weight:bold;">200</td>
+<td style="color:#ff4d4d;font-weight:bold;">220</td>
+<td style="color:#ff4d4d;font-weight:bold;">240</td>
+<td style="color:#ff4d4d;font-weight:bold;">260</td>
+<td style="color:#ff4d4d;font-weight:bold;">280</td>
+<td style="color:#ff4d4d;font-weight:bold;">300</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="botao" onclick="voltar()">← Voltar</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================================= -->
+<!-- NOX ASSISTENTE -->
+<!-- ================================= -->
+
+<div class="nox-container" id="noxContainer">
+
+<img src="img-nox/nox-duvida.png" class="nox-img" alt="NOX">
+
+<div class="nox-box" id="noxFala"></div>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- SCRIPT -->
+<!-- ================================= -->
+
+<script>
+
+/* ===== FALAS OFICIAIS DO NOX ===== */
+
+const falasMenu = [
+
+`Ah… o menu.
+Finalmente decidiu pensar antes de agir. Eu estava começando a me preocupar.`,
+
+`Interessante… procurando vantagem antes da batalha.
+Gosto quando você aprende rápido.`,
+
+`Planejamento. Finalmente.
+Vitórias começam aqui — não no impulso.`
+
+];
+
+
+
+/* ===== ATIVAR NOX ===== */
+
+function ativarNox(){
+
+const indice = Math.floor(Math.random() * falasMenu.length);
+
+const falaEscolhida = falasMenu[indice];
+
+const box = document.getElementById("noxFala");
+const container = document.getElementById("noxContainer");
+
+container.classList.add("active");
+
+box.innerHTML = "";
+
+let i = 0;
+
+function digitar(){
+
+if(i < falaEscolhida.length){
+
+box.innerHTML += falaEscolhida[i] === "\n" ? "<br>" : falaEscolhida[i];
+
+i++;
+
+setTimeout(digitar,22);
+
+}
+
+}
+
+digitar();
+
+}
+
+
+
+/* ===== MENU ===== */
+
+function abrirMenu(){
+
+document.getElementById("menuLateral").classList.add("ativo");
+
+document.getElementById("overlay").classList.add("ativo");
+
+ativarNox();
+
+}
+
+function fecharMenu(){
+
+document.getElementById("menuLateral").classList.remove("ativo");
+
+document.getElementById("overlay").classList.remove("ativo");
+
+document.getElementById("noxContainer").classList.remove("active");
+
+}
+
+
+
+/* ===== NAVEGAÇÃO ===== */
+
+function irInicio(){
+
+document.getElementById("telaHerois").classList.add("oculto");
+
+document.getElementById("telaDetalhe").classList.add("oculto");
+
+document.getElementById("telaInicial").classList.remove("oculto");
+
+fecharMenu();
+
+}
+
+function abrirHerois(){
+
+document.getElementById("telaInicial").classList.add("oculto");
+
+document.getElementById("telaDetalhe").classList.add("oculto");
+
+document.getElementById("telaHerois").classList.remove("oculto");
+
+fecharMenu();
+
+}
+
+
+
+/* ===== LOGO ===== */
+
+function tocarSomLogo(){
+
+const som = document.getElementById("logoSound");
+
+som.currentTime = 0;
+
+som.play();
+
+}
+
+
+
+/* ===== CARDS ===== */
+
+function mostrarLutador(){
+
+document.getElementById("areaCards").innerHTML = `
+
+<div class="card" onclick="abrirFreya()">
+
+<img src="freya-card.jpg">
+
+<h3>Freya</h3>
+
+</div>
+
+`;
+
+}
+
+function abrirFreya(){
+
+document.getElementById("telaHerois").classList.add("oculto");
+
+document.getElementById("telaDetalhe").classList.remove("oculto");
+
+}
+
+function voltar(){
+
+document.getElementById("telaDetalhe").classList.add("oculto");
+
+document.getElementById("telaHerois").classList.remove("oculto");
+
+}
+
+
+
+/* ===== BLOQUEIO CLICK DIREITO ===== */
+
+document.addEventListener("contextmenu",function(e){
+
+e.preventDefault();
+
+});
+
+</script>
+
+</body>
+
   </html>
