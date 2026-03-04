@@ -57,3 +57,55 @@ table {
 td, th {
   padding: 6px;
 }
+
+/* ===================================================
+   TELA INICIAL NOX
+=================================================== */
+
+.tela-inicial-nox {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 20px;
+}
+
+/* LOGO PEQUENA SUPERIOR DIREITA */
+
+.logo-topo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 130px;
+  opacity: 0.95;
+}
+
+/* NOX */
+
+.nox-home-img {
+  width: 220px;
+  filter: drop-shadow(0 0 25px rgba(255, 200, 0, 0.7));
+}
+
+/* CAIXA */
+
+.nox-home-box {
+  max-width: 420px;
+  background: rgba(8, 18, 60, 0.85);
+  backdrop-filter: blur(6px);
+  border-radius: 22px;
+  padding: 30px;
+  border: 2px solid rgba(255, 200, 0, 0.6);
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* TEXTO DOURADO */
+
+.destaque-dourado {
+  color: #f5b642;
+  font-weight: bold;
+}
