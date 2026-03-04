@@ -1,63 +1,73 @@
-/* BOTÃO MENU */
-.menu-btn{
-position:fixed;
-top:15px;
-left:15px;
-font-size:28px;
-cursor:pointer;
-z-index:1003;
+/* ===================================================
+MENU LATERAL
+=================================================== */
+
+.menu-btn {
+position: fixed;
+top: 20px;
+left: 20px;
+font-size: 28px;
+cursor: pointer;
+z-index: 1003;
 }
 
-/* MENU LATERAL */
-.menu-lateral{
-position:fixed;
-top:0;
-left:-260px;
-width:260px;
-height:100%;
-background:linear-gradient(180deg,#0a0f2c,#050816);
-padding-top:60px;
-transition:0.3s;
-z-index:1002;
+.menu-lateral {
+position: fixed;
+top: 0;
+left: -260px;
+width: 250px;
+height: 100%;
+background: linear-gradient(180deg, #0b0f2a, #11183c);
+box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
+padding-top: 60px;
+transition: 0.4s;
+z-index: 1004;
 }
 
-/* MENU ATIVO */
-.menu-lateral.ativo{
-left:0;
+.menu-lateral.ativo {
+left: 0;
 }
 
-/* LINKS DO MENU */
-.menu-lateral a{
-display:block;
-padding:15px 25px;
-color:white;
-text-decoration:none;
-font-size:16px;
-transition:0.2s;
+.menu-lateral a {
+display: block;
+padding: 15px 25px;
+text-decoration: none;
+color: #cfd8ff;
+font-weight: bold;
+text-align: left;
+transition: 0.3s;
 }
 
-/* HOVER LINKS */
-.menu-lateral a:hover{
-color:#f5b642;
+.menu-lateral a:hover {
+background: rgba(255, 255, 255, 0.08);
+color: #f5b642;
 }
 
-/* OVERLAY ESCURECIDO */
-.overlay{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(5,10,30,0.55);
-backdrop-filter:blur(6px);
-opacity:0;
-visibility:hidden;
-transition:0.3s;
-z-index:1001;
+.menu-fechar {
+position: absolute;
+top: 15px;
+right: 20px;
+font-size: 22px;
+cursor: pointer;
 }
 
-/* OVERLAY ATIVO */
-.overlay.ativo{
-opacity:1;
-visibility:visible;
+/* ===================================================
+OVERLAY COM DESFOQUE PREMIUM
+=================================================== */
+
+.overlay {
+position: fixed;
+inset: 0;
+background: rgba(5, 10, 30, 0.55);
+backdrop-filter: blur(6px);
+-webkit-backdrop-filter: blur(6px);
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+z-index: 1002;
+}
+
+.overlay.ativo {
+opacity: 1;
+visibility: visible;
 }
