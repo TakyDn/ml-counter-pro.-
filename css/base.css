@@ -1,61 +1,59 @@
-/* RESET BÁSICO */
-body{
-margin:0;
-padding:0;
-font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(180deg,#0a0f2c,#050816);
-color:white;
-text-align:center;
+/* ===================================================
+RESET & BASE GLOBAL
+=================================================== */
+
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background: linear-gradient(180deg, #0b0f2a, #11183c);
+color: white;
+text-align: center;
 }
 
-/* CONTAINER PRINCIPAL */
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
+.container {
+max-width: 900px;
+margin: auto;
+padding: 20px;
 }
 
-/* TITULOS */
-h2{
-font-size:22px;
-margin-bottom:15px;
+/* ===================================================
+RESPONSIVIDADE & AJUSTES VISUAIS
+=================================================== */
+
+.hero-img {
+width: 100%;
+max-width: 400px;
+height: auto;
+display: block;
+margin: 20px auto;
+border-radius: 12px;
 }
 
-h3{
-margin-top:15px;
+h2 {
+font-size: 22px;
+margin-top: 10px;
 }
 
-/* PARÁGRAFOS */
-p{
-font-size:15px;
-line-height:1.4;
+p {
+font-size: 15px;
+line-height: 1.6;
 }
 
-/* IMAGEM DE HERÓI */
-.hero-img{
-width:100%;
-max-width:400px;
-border-radius:12px;
-margin-top:10px;
+button {
+padding: 10px 20px;
+font-size: 14px;
+border-radius: 8px;
+border: none;
+cursor: pointer;
 }
 
-/* BOTÕES PADRÃO */
-button{
-padding:10px 20px;
-border:none;
-border-radius:8px;
-cursor:pointer;
+table {
+width: 100%;
+font-size: 13px;
+margin-top: 10px;
+border-collapse: collapse;
 }
 
-/* TABELAS */
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-font-size:13px;
-}
-
-td,th{
-padding:8px;
-border-bottom:1px solid rgba(255,255,255,0.1);
+td, th {
+padding: 6px;
 }
