@@ -4,14 +4,14 @@ LOGO FIXA (NÃO OCUPA ESPAÇO)
 
 .logo-container-top{
 position: fixed;
-top: 15px;
-right: 20px;
+top: 30px;
+right: 40px;
 z-index: 1005;
 pointer-events: auto;
 }
 
 .logo-top{
-width: 140px;
+width: 170px;
 height: auto;
 display: block;
 cursor: pointer;
