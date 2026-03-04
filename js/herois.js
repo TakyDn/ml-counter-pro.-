@@ -1,17 +1,38 @@
-/* ===== CARDS ===== */
+/* ===== LISTA DE HERÓIS ===== */
+
+const heroisLutadores = [
+
+{
+nome: "Freya",
+img: "freya-card.jpg",
+acao: "abrirFreya()"
+}
+
+];
+
+
+/* ===== MOSTRAR LUTADORES ===== */
 
 function mostrarLutador(){
 
-document.getElementById("areaCards").innerHTML = `
+const area = document.getElementById("areaCards");
 
-<div class="card" onclick="abrirFreya()">
+area.innerHTML = "";
 
-<img src="freya-card.jpg">
+heroisLutadores.forEach(heroi => {
 
-<h3>Freya</h3>
+area.innerHTML += `
+
+<div class="card" onclick="${heroi.acao}">
+
+<img src="${heroi.img}">
+
+<h3>${heroi.nome}</h3>
 
 </div>
 
 `;
+
+});
 
 }
