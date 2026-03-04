@@ -1,25 +1,36 @@
-/* ===================================================
-   BOTÕES
-=================================================== */
-
-.btn-classe {
-  background: #f5b642;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 10px;
+/* BOTÃO PRINCIPAL (CLASSES / AÇÕES PRINCIPAIS) */
+.btn-classe{
+background:#f5b642;
+color:#000;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+transition:0.2s;
 }
 
-.botao {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 10px 20px;
-  background: #f5b642;
-  color: black;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
+/* HOVER BOTÃO PRINCIPAL */
+.btn-classe:hover{
+transform:scale(1.05);
+box-shadow:0 0 10px rgba(245,182,66,0.7);
+}
+
+/* BOTÃO SECUNDÁRIO (VOLTAR) */
+.botao{
+background:#f5b642;
+color:#000;
+padding:10px 20px;
+border-radius:30px;
+display:inline-block;
+margin-top:25px;
+font-weight:bold;
+cursor:pointer;
+transition:0.2s;
+}
+
+/* HOVER BOTÃO VOLTAR */
+.botao:hover{
+transform:scale(1.05);
+box-shadow:0 0 10px rgba(245,182,66,0.7);
 }
