@@ -1,119 +1,61 @@
-/* ===================================================
-   RESET & BASE GLOBAL
-=================================================== */
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #0b0f2a, #11183c);
-  color: white;
-  text-align: center;
+/* RESET BÁSICO */
+body{
+margin:0;
+padding:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(180deg,#0a0f2c,#050816);
+color:white;
+text-align:center;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+/* CONTAINER PRINCIPAL */
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
 }
 
-/* ===================================================
-   RESPONSIVIDADE & AJUSTES VISUAIS
-=================================================== */
-
-.hero-img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-  border-radius: 12px;
+/* TITULOS */
+h2{
+font-size:22px;
+margin-bottom:15px;
 }
 
-h2 {
-  font-size: 22px;
-  margin-top: 10px;
+h3{
+margin-top:15px;
 }
 
-p {
-  font-size: 15px;
-  line-height: 1.6;
+/* PARÁGRAFOS */
+p{
+font-size:15px;
+line-height:1.4;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
+/* IMAGEM DE HERÓI */
+.hero-img{
+width:100%;
+max-width:400px;
+border-radius:12px;
+margin-top:10px;
 }
 
-table {
-  width: 100%;
-  font-size: 13px;
-  margin-top: 10px;
-  border-collapse: collapse;
+/* BOTÕES PADRÃO */
+button{
+padding:10px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
 }
 
-td, th {
-  padding: 6px;
+/* TABELAS */
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+font-size:13px;
 }
 
-/* ===================================================
-   TELA INICIAL NOX
-=================================================== */
-
-.tela-inicial-nox {
-
-  position: relative;
-  width: 100%;
-  height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 80px;
-}
-
-/* LOGO */
-
-.logo-topo {
-  position: absolute;
-  top: 25px;
-  right: 30px;
-  width: 110px;
-}
-
-/* NOX */
-
-.nox-home-img {
-  width: 230px;
-}
-
-/* CAIXA */
-
-.nox-home-box {
-
-  width: 420px;
-
-  padding: 35px;
-
-  background: rgba(8,18,60,0.9);
-
-  border-radius: 25px;
-
-  border: 2px solid #f5b642;
-
-  font-size: 16px;
-
-  line-height: 1.8;
-
-  text-align: left;
-}
-
-/* TEXTO DOURADO */
-
-.destaque-dourado {
-  color: #f5b642;
-  font-weight: bold;
+td,th{
+padding:8px;
+border-bottom:1px solid rgba(255,255,255,0.1);
 }
