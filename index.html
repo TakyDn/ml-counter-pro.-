@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="css/menu-lateral.css">
 <link rel="stylesheet" href="css/nox.css">
 <link rel="stylesheet" href="css/ocultar.css">
-  
+
 </head>
 
 <body>
@@ -47,24 +47,56 @@
 
 <div class="container">
 
-<div class="logo-container">
-  <img src="logo.png" class="logo-img" onclick="tocarSomLogo()">
-</div>
-
 <audio id="logoSound" src="click.mp3"></audio>
 
-<!-- TELA INICIAL (AGORA LIMPA) -->
-<div id="telaInicial">
+<!-- =========================
+     TELA INICIAL - NOX HOME
+========================= -->
+<div id="telaInicial" class="tela-inicial-nox">
+
+  <!-- LOGO PEQUENA SUPERIOR DIREITA -->
+  <img src="logo.png" class="logo-topo">
+
+  <!-- NOX -->
+  <div class="nox-home">
+    <img src="img-nox/nox-home.png" class="nox-home-img">
+  </div>
+
+  <!-- CAIXA DE FALA -->
+  <div class="nox-home-box">
+    <p>Então... você quer vencer.</p>
+
+    <p>
+      Vitórias não começam no jogo. Elas começam antes.
+    </p>
+
+    <p>
+      Eu sou <span class="destaque-dourado">NOX</span>.
+    </p>
+
+    <p>
+      E vou te ajudar a pensar melhor que seus inimigos.
+    </p>
+
+    <p>
+      Abra o <span class="destaque-dourado">MENU</span>.
+    </p>
+  </div>
+
 </div>
 
-<!-- TELA HERÓIS -->
+<!-- =========================
+     TELA HERÓIS
+========================= -->
 <div id="telaHerois" class="oculto">
   <h2>Escolha uma Classe</h2>
   <button class="btn-classe" onclick="mostrarLutador()">⚔ Lutador</button>
   <div id="areaCards"></div>
 </div>
 
-<!-- TELA DETALHE -->
+<!-- =========================
+     TELA DETALHE
+========================= -->
 <div id="telaDetalhe" class="oculto">
 <img src="freya-detalhe.jpg" class="hero-img">
 
@@ -124,62 +156,22 @@ os lançando ao ar por 0.4s.
 
 <div class="botao" onclick="voltar()">← Voltar</div>
 </div>
-
 </div>
 
-<!-- NOX ASSISTENTE -->
-<div class="nox-container" id="noxContainer">
-  <img src="img-nox/nox-duvida.png" class="nox-img" alt="NOX">
-  <div class="nox-box" id="noxFala"></div>
 </div>
 
 <script>
 
-/* ===== FALAS OFICIAIS DO NOX ===== */
-const falasMenu = [
-`Ah… o menu.
-Finalmente decidiu pensar antes de agir. Eu estava começando a me preocupar.`,
-`Interessante… procurando vantagem antes da batalha.
-Gosto quando você aprende rápido.`,
-`Planejamento. Finalmente.
-Vitórias começam aqui — não no impulso.`
-];
-
-/* ===== ATIVAR NOX ===== */
-function ativarNox(){
-  const indice = Math.floor(Math.random() * falasMenu.length);
-  const falaEscolhida = falasMenu[indice];
-
-  const box = document.getElementById("noxFala");
-  const container = document.getElementById("noxContainer");
-
-  container.classList.add("active");
-
-  box.innerHTML = "";
-
-  let i = 0;
-
-  function digitar(){
-    if(i < falaEscolhida.length){
-      box.innerHTML += falaEscolhida[i] === "\n" ? "<br>" : falaEscolhida[i];
-      i++;
-      setTimeout(digitar, 22);
-    }
-  }
-
-  digitar();
-}
+/* ===== FUNÇÕES EXISTENTES ===== */
 
 function abrirMenu(){
   document.getElementById("menuLateral").classList.add("ativo");
   document.getElementById("overlay").classList.add("ativo");
-  ativarNox();
 }
 
 function fecharMenu(){
   document.getElementById("menuLateral").classList.remove("ativo");
   document.getElementById("overlay").classList.remove("ativo");
-  document.getElementById("noxContainer").classList.remove("active");
 }
 
 function irInicio(){
@@ -194,12 +186,6 @@ function abrirHerois(){
   document.getElementById("telaDetalhe").classList.add("oculto");
   document.getElementById("telaHerois").classList.remove("oculto");
   fecharMenu();
-}
-
-function tocarSomLogo(){
-  const som = document.getElementById("logoSound");
-  som.currentTime = 0;
-  som.play();
 }
 
 function mostrarLutador(){
