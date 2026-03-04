@@ -1,20 +1,22 @@
 /* ===================================================
-LOGO
+LOGO FIXA NO TOPO
 =================================================== */
 
-.logo-container {
-margin-bottom: 20px;
+.logo-container{
+position: fixed;
+top: 15px;
+right: 20px;
+z-index: 1001;
 }
 
-.logo-img {
-width: 90%;
-max-width: 420px;
-filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.6));
-transition: 0.4s;
+.logo-img{
+width: 120px;
 cursor: pointer;
+transition: 0.3s;
+filter: drop-shadow(0 0 10px rgba(255,200,0,0.5));
 }
 
-.logo-img:hover {
-filter: drop-shadow(0 0 25px rgba(255, 204, 0, 0.9));
-transform: scale(1.03);
+.logo-img:hover{
+transform: scale(1.05);
+filter: drop-shadow(0 0 15px rgba(255,200,0,0.9));
 }
