@@ -6,14 +6,15 @@ const herois = document.getElementById("telaHerois");
 inicio.classList.remove("oculto");
 herois.classList.add("oculto");
 
+fecharMenu();
+  
 }
 
 function abrirHerois(){
 
-const inicio = document.getElementById("telaInicial");
-const herois = document.getElementById("telaHerois");
+document.getElementById("telaInicial").classList.add("oculto");
+document.getElementById("telaHerois").classList.remove("oculto");
 
-inicio.classList.add("oculto");
-herois.classList.remove("oculto");
+fecharMenu();
 
 }
