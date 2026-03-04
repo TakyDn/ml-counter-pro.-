@@ -1,12 +1,12 @@
 /* ===================================================
-HERÓIS - ÁREA DE CARDS
+ÁREA DOS HERÓIS
 =================================================== */
 
 #areaCards{
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-gap: 18px;
-margin-top: 30px;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(95px,1fr));
+gap:18px;
+margin-top:30px;
 }
 
 
@@ -15,14 +15,25 @@ CARD DO HERÓI
 =================================================== */
 
 .card{
-background: linear-gradient(145deg,#0f1538,#0a0f2a);
-border-radius: 14px;
-padding: 6px;
-cursor: pointer;
-transition: 0.25s;
-text-align: center;
-position: relative;
-overflow: hidden;
+position:relative;
+cursor:pointer;
+text-align:center;
+transition:0.25s;
+}
+
+
+/* ===================================================
+IMAGEM DO HERÓI
+=================================================== */
+
+.card img{
+width:100%;
+border-radius:12px;
+display:block;
+
+box-shadow:
+0 6px 15px rgba(0,0,0,0.6),
+0 0 8px rgba(245,182,66,0.25);
 }
 
 
@@ -31,19 +42,27 @@ EFEITO AO PASSAR
 =================================================== */
 
 .card:hover{
-transform: translateY(-4px) scale(1.05);
-box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+transform:translateY(-6px) scale(1.05);
+}
+
+.card:hover img{
+box-shadow:
+0 10px 20px rgba(0,0,0,0.7),
+0 0 12px rgba(245,182,66,0.7);
 }
 
 
 /* ===================================================
-IMAGEM
+BORDA DOURADA
 =================================================== */
 
-.card img{
-width: 100%;
-border-radius: 10px;
-display: block;
+.card::after{
+content:"";
+position:absolute;
+inset:0;
+border-radius:12px;
+box-shadow:0 0 0 1px rgba(245,182,66,0.25);
+pointer-events:none;
 }
 
 
@@ -52,30 +71,9 @@ NOME DO HERÓI
 =================================================== */
 
 .card h3{
-font-size: 13px;
-margin-top: 8px;
-color: #ffffff;
-font-weight: 500;
-letter-spacing: 0.3px;
-}
-
-
-/* ===================================================
-BRILHO DOURADO ESTILO ML
-=================================================== */
-
-.card::before{
-content:"";
-position:absolute;
-inset:0;
-border-radius:14px;
-padding:1px;
-background:linear-gradient(120deg,#f5b642,transparent,#f5b642);
--webkit-mask:
-linear-gradient(#000 0 0) content-box,
-linear-gradient(#000 0 0);
--webkit-mask-composite:xor;
-mask-composite:exclude;
-opacity:0.35;
-pointer-events:none;
+font-size:12px;
+margin-top:6px;
+color:#ffffff;
+font-weight:500;
+letter-spacing:0.3px;
 }
