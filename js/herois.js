@@ -47,3 +47,14 @@ document.getElementById("telaHerois").classList.add("oculto");
 document.getElementById("telaDetalhe").classList.remove("oculto");
 
 }
+
+
+/* ===== VOLTAR ===== */
+
+function voltar(){
+
+document.getElementById("telaDetalhe").classList.add("oculto");
+
+document.getElementById("telaHerois").classList.remove("oculto");
+
+}
