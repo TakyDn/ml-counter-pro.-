@@ -36,3 +36,14 @@ area.innerHTML += `
 });
 
 }
+
+
+/* ===== ABRIR FREYA ===== */
+
+function abrirFreya(){
+
+document.getElementById("telaHerois").classList.add("oculto");
+
+document.getElementById("telaDetalhe").classList.remove("oculto");
+
+}
