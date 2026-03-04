@@ -153,20 +153,22 @@ function ativarNox(){
   const box = document.getElementById("noxFala");
   const container = document.getElementById("noxContainer");
 
-  box.innerText = "";
   container.classList.add("active");
 
+  box.innerHTML = "";
+
   let i = 0;
+
   function digitar(){
     if(i < falaEscolhida.length){
-      box.innerText += falaEscolhida.charAt(i);
+      box.innerHTML += falaEscolhida[i] === "\n" ? "<br>" : falaEscolhida[i];
       i++;
-      setTimeout(digitar, 18);
+      setTimeout(digitar, 22);
     }
   }
 
   digitar();
-  }
+}
 
 function abrirMenu(){
   document.getElementById("menuLateral").classList.add("ativo");
