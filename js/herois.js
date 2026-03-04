@@ -1,3 +1,1 @@
-function mostrarLutador(){
-alert("Funcionou");
-}
+VAZIA
