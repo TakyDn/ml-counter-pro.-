@@ -1,17 +1,16 @@
 /* ===================================================
-LOGO FIXA (NÃO OCUPA ESPAÇO)
+LOGO FIXA
 =================================================== */
 
 .logo-container-top{
 position: fixed;
-top: 30px;
-right: 40px;
+top: 15px;
+right: 20px;
 z-index: 1005;
-pointer-events: auto;
 }
 
 .logo-top{
-width: 170px;
+width: 200px;
 height: auto;
 display: block;
 cursor: pointer;
