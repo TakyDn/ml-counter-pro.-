@@ -1,13 +1,19 @@
 function irInicio(){
 
-document.getElementById("telaInicial").classList.remove("oculto");
-document.getElementById("telaHerois").classList.add("oculto");
+const inicio = document.getElementById("telaInicial");
+const herois = document.getElementById("telaHerois");
+
+inicio.classList.remove("oculto");
+herois.classList.add("oculto");
 
 }
 
 function abrirHerois(){
 
-document.getElementById("telaInicial").classList.add("oculto");
-document.getElementById("telaHerois").classList.remove("oculto");
+const inicio = document.getElementById("telaInicial");
+const herois = document.getElementById("telaHerois");
+
+inicio.classList.add("oculto");
+herois.classList.remove("oculto");
 
 }
