@@ -1,7 +1,9 @@
-/* ===================================================
-   UTILIDADES
-=================================================== */
+/* ESCONDER ELEMENTOS */
+.oculto{
+display:none;
+}
 
-.oculto {
-  display: none;
+/* TELA ATIVA */
+.ativo{
+display:block;
 }
