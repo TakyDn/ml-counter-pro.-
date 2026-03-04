@@ -1,14 +1,12 @@
 function irInicio(){
 
-const inicio = document.getElementById("telaInicial");
-const herois = document.getElementById("telaHerois");
-
-inicio.classList.remove("oculto");
-herois.classList.add("oculto");
+document.getElementById("telaInicial").classList.remove("oculto");
+document.getElementById("telaHerois").classList.add("oculto");
 
 fecharMenu();
-  
+
 }
+  
 
 function abrirHerois(){
 
