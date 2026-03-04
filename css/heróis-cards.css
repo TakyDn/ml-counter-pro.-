@@ -1,23 +1,39 @@
-/* ===================================================
-   HERÓIS - CARDS
-=================================================== */
-
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 15px;
-  margin-top: 20px;
-  cursor: pointer;
-  display: inline-block;
-  width: 220px;
-  transition: 0.3s;
+/* ÁREA DOS CARDS */
+.areaCards{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+margin-top:20px;
 }
 
-.card:hover {
-  transform: scale(1.05);
+/* CARD DO HERÓI */
+.card{
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+padding:15px;
+width:220px;
+text-align:center;
+cursor:pointer;
+transition:0.25s;
+backdrop-filter:blur(4px);
 }
 
-.card img {
-  width: 100%;
-  border-radius: 15px;
+/* HOVER CARD */
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px rgba(245,182,66,0.4);
+}
+
+/* IMAGEM DO HERÓI */
+.card img{
+width:100%;
+border-radius:15px;
+margin-bottom:10px;
+}
+
+/* NOME DO HERÓI */
+.card h3{
+margin:0;
+font-size:18px;
 }
