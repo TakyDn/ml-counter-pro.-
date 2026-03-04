@@ -45,16 +45,13 @@
 
 <div class="overlay" id="overlay" onclick="fecharMenu()"></div>
 
-<div class="container">
+<!-- ===================================================
+     TELA INICIAL NOX (FORA DA CONTAINER)
+=================================================== -->
 
-<audio id="logoSound" src="click.mp3"></audio>
-
-<!-- =========================
-     TELA INICIAL - NOX HOME
-========================= -->
 <div id="telaInicial" class="tela-inicial-nox">
 
-  <!-- LOGO PEQUENA SUPERIOR DIREITA -->
+  <!-- LOGO SUPERIOR DIREITA -->
   <img src="logo.png" class="logo-topo">
 
   <!-- NOX -->
@@ -64,6 +61,7 @@
 
   <!-- CAIXA DE FALA -->
   <div class="nox-home-box">
+
     <p>Então... você quer vencer.</p>
 
     <p>
@@ -81,9 +79,18 @@
     <p>
       Abra o <span class="destaque-dourado">MENU</span>.
     </p>
+
   </div>
 
 </div>
+
+<!-- ===================================================
+     CONTAINER DO SITE
+=================================================== -->
+
+<div class="container">
+
+<audio id="logoSound" src="click.mp3"></audio>
 
 <!-- =========================
      TELA HERÓIS
@@ -107,6 +114,7 @@
 <span class="info-destaque">EXP Lane</span></p>
 
 <div class="skill-box">
+
 <h2>🔥 <span class="dourado">Skill 1 –</span> <span class="dourado">Salto da Fé</span></h2>
 
 <p>
@@ -120,6 +128,7 @@ os lançando ao ar por 0.4s.
 
 <div class="tabela-skill">
 <table>
+
 <tr>
 <th></th>
 <th style="color:#f5b642;font-weight:bold;">Nv.1</th>
@@ -129,10 +138,12 @@ os lançando ao ar por 0.4s.
 <th style="color:#f5b642;font-weight:bold;">Nv.5</th>
 <th style="color:#f5b642;font-weight:bold;">Nv.6</th>
 </tr>
+
 <tr>
 <td><b style="color:#f5b642;">Tempo de Recarga</b></td>
 <td>8.0s</td><td>7.6s</td><td>7.2s</td><td>6.8s</td><td>6.4s</td><td>6.0s</td>
 </tr>
+
 <tr>
 <td><b style="color:#f5b642;">Escudo</b></td>
 <td style="color:#00BFFF;font-weight:bold;">500</td>
@@ -142,6 +153,7 @@ os lançando ao ar por 0.4s.
 <td style="color:#00BFFF;font-weight:bold;">820</td>
 <td style="color:#00BFFF;font-weight:bold;">900</td>
 </tr>
+
 <tr>
 <td><b style="color:#f5b642;">Dano Base</b></td>
 <td style="color:#ff4d4d;font-weight:bold;">200</td>
@@ -151,10 +163,12 @@ os lançando ao ar por 0.4s.
 <td style="color:#ff4d4d;font-weight:bold;">280</td>
 <td style="color:#ff4d4d;font-weight:bold;">300</td>
 </tr>
+
 </table>
 </div>
 
 <div class="botao" onclick="voltar()">← Voltar</div>
+
 </div>
 </div>
 
@@ -162,7 +176,7 @@ os lançando ao ar por 0.4s.
 
 <script>
 
-/* ===== FUNÇÕES EXISTENTES ===== */
+/* ===== MENU ===== */
 
 function abrirMenu(){
   document.getElementById("menuLateral").classList.add("ativo");
@@ -173,6 +187,8 @@ function fecharMenu(){
   document.getElementById("menuLateral").classList.remove("ativo");
   document.getElementById("overlay").classList.remove("ativo");
 }
+
+/* ===== NAVEGAÇÃO ===== */
 
 function irInicio(){
   document.getElementById("telaHerois").classList.add("oculto");
@@ -187,6 +203,8 @@ function abrirHerois(){
   document.getElementById("telaHerois").classList.remove("oculto");
   fecharMenu();
 }
+
+/* ===== HEROIS ===== */
 
 function mostrarLutador(){
   document.getElementById("areaCards").innerHTML = `
@@ -207,6 +225,8 @@ function voltar(){
   document.getElementById("telaHerois").classList.remove("oculto");
 }
 
+/* ===== PROTEÇÃO ===== */
+
 document.addEventListener("contextmenu", function(e){
   e.preventDefault();
 });
@@ -214,4 +234,4 @@ document.addEventListener("contextmenu", function(e){
 </script>
 
 </body>
-  </html>
+</html>
