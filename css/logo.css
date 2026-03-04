@@ -1,5 +1,5 @@
 /* ===================================================
-LOGO FIXA NO TOPO
+LOGO FIXA (NÃO OCUPA ESPAÇO)
 =================================================== */
 
 .logo-container-top{
@@ -7,10 +7,13 @@ position: fixed;
 top: 15px;
 right: 20px;
 z-index: 1005;
+pointer-events: auto;
 }
 
 .logo-top{
-width: 110px;
+width: 90px;
+height: auto;
+display: block;
 cursor: pointer;
 transition: 0.3s;
 filter: drop-shadow(0 0 10px rgba(255,200,0,0.6));
