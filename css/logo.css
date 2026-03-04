@@ -1,5 +1,5 @@
 /* ===================================================
-LOGO FIXA NO TOPO
+LOGO FIXA NO TOPO DIREITO
 =================================================== */
 
 .logo-container{
@@ -10,7 +10,7 @@ z-index: 1001;
 }
 
 .logo-img{
-width: 120px;
+width: 110px;
 cursor: pointer;
 transition: 0.3s;
 filter: drop-shadow(0 0 10px rgba(255,200,0,0.5));
