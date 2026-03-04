@@ -6,7 +6,6 @@ document.getElementById("telaHerois").classList.add("oculto");
 fecharMenu();
 
 }
-  
 
 function abrirHerois(){
 
