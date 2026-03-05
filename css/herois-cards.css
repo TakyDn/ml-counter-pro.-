@@ -133,3 +133,29 @@ EFEITO HOVER
 transform:scale(1.08);
 color:#f5b642;
 }
+
+
+/* =========================
+ICONE DAS CLASSES
+========================= */
+
+.classe-icon{
+
+width:45px;
+height:45px;
+
+margin-bottom:6px;
+
+filter:drop-shadow(0 0 6px rgba(245,182,66,0.4));
+
+transition:0.25s;
+
+}
+
+.classe-card:hover .classe-icon{
+
+transform:scale(1.15);
+
+filter:drop-shadow(0 0 10px rgba(245,182,66,0.9));
+
+}
