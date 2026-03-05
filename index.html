@@ -103,41 +103,25 @@
 
 <div id="telaHerois" class="oculto">
 
-<h2>SELECIONE UMA CLASSE</h2>
+<h2>HERÓIS</h2>
 
-<div id="areaCards">
+<div class="selecao-herois">
 
-<!-- CLASSES -->
+<!-- MENU CLASSES -->
+<div class="menu-classes">
 
-<div class="classe-card" onclick="abrirClasse('fighter')">
-⚔
-<h3>Fighter</h3>
+<div onclick="abrirClasse('todos')">Todos</div>
+<div onclick="abrirClasse('tank')">Tank</div>
+<div onclick="abrirClasse('fighter')">Fighter</div>
+<div onclick="abrirClasse('assassin')">Assassin</div>
+<div onclick="abrirClasse('mage')">Mage</div>
+<div onclick="abrirClasse('marksman')">Marksman</div>
+<div onclick="abrirClasse('support')">Support</div>
+
 </div>
 
-<div class="classe-card" onclick="abrirClasse('tank')">
-🛡
-<h3>Tank</h3>
-</div>
-
-<div class="classe-card" onclick="abrirClasse('assassin')">
-🗡
-<h3>Assassin</h3>
-</div>
-
-<div class="classe-card" onclick="abrirClasse('mage')">
-🔮
-<h3>Mage</h3>
-</div>
-
-<div class="classe-card" onclick="abrirClasse('marksman')">
-🏹
-<h3>Marksman</h3>
-</div>
-
-<div class="classe-card" onclick="abrirClasse('support')">
-💎
-<h3>Support</h3>
-</div>
+<!-- AREA HEROIS -->
+<div id="areaHerois"></div>
 
 </div>
 
