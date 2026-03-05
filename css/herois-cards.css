@@ -159,3 +159,77 @@ transform:scale(1.15);
 filter:drop-shadow(0 0 10px rgba(245,182,66,0.9));
 
 }
+
+
+/* =================================
+AREA DAS CLASSES
+================================= */
+
+#areaCards{
+
+display:flex;
+justify-content:center;
+align-items:center;
+gap:60px;
+
+margin-top:80px;
+
+flex-wrap:wrap;
+
+}
+
+
+/* =================================
+CARD DA CLASSE
+================================= */
+
+.classe-card{
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+cursor:pointer;
+
+transition:0.25s;
+
+color:white;
+
+}
+
+
+/* =================================
+ICONE
+================================= */
+
+.classe-icon{
+
+width:55px;
+height:55px;
+
+margin-bottom:10px;
+
+filter:drop-shadow(0 0 6px rgba(245,182,66,0.4));
+
+transition:0.25s;
+
+}
+
+
+/* =================================
+HOVER
+================================= */
+
+.classe-card:hover .classe-icon{
+
+transform:scale(1.2);
+
+filter:drop-shadow(0 0 12px rgba(245,182,66,0.9));
+
+}
+
+.classe-card:hover{
+
+color:#f5b642;
+
+  }
