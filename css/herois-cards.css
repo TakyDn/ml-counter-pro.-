@@ -77,3 +77,30 @@ color:#ffffff;
 font-weight:500;
 letter-spacing:0.3px;
 }
+
+
+/* =========================
+LAYOUT HEROIS
+========================= */
+
+#areaCards{
+display:flex;
+gap:40px;
+margin-top:60px;
+}
+
+/* MENU DE CLASSES */
+
+.classe-card{
+display:flex;
+flex-direction:column;
+align-items:center;
+cursor:pointer;
+width:80px;
+}
+
+/* COLUNA DE CLASSES */
+
+#areaCards{
+align-items:flex-start;
+}
