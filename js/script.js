@@ -43,3 +43,12 @@ card.style.display = "none";
 });
 
 }
+
+
+function voltarClasses(){
+
+document.getElementById("telaFighters").classList.add("oculto");
+
+document.getElementById("telaHerois").classList.remove("oculto");
+
+}
