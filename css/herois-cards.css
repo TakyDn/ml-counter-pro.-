@@ -233,3 +233,118 @@ filter:drop-shadow(0 0 12px rgba(245,182,66,0.9));
 color:#f5b642;
 
   }
+
+
+/* TOPO */
+
+.topo-fighters{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+margin-bottom:20px;
+
+}
+
+/* BOTÃO VOLTAR */
+
+.btn-voltar{
+
+font-size:28px;
+
+background:transparent;
+border:none;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+/* TITULO */
+
+.titulo-fighters{
+
+font-size:24px;
+font-weight:bold;
+
+color:white;
+
+}
+
+/* BUSCA */
+
+.busca-heroi input{
+
+padding:8px 14px;
+
+border-radius:20px;
+
+border:none;
+
+outline:none;
+
+background:rgba(255,255,255,0.15);
+
+color:white;
+
+}
+
+/* GRID HEROIS */
+
+.grid-herois{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fill, minmax(120px,1fr));
+
+gap:20px;
+
+}
+
+/* CARD */
+
+.heroi-card{
+
+background:rgba(255,255,255,0.05);
+
+border-radius:15px;
+
+overflow:hidden;
+
+cursor:pointer;
+
+transition:0.25s;
+
+text-align:center;
+
+}
+
+.heroi-card:hover{
+
+transform:scale(1.05);
+
+}
+
+/* IMG */
+
+.heroi-card img{
+
+width:100%;
+
+display:block;
+
+}
+
+/* NOME */
+
+.heroi-card p{
+
+font-size:14px;
+
+padding:6px;
+
+color:white;
+
+}
