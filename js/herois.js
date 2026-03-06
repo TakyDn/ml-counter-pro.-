@@ -18,3 +18,14 @@ area.innerHTML = `
 }
 
 }
+
+
+function abrirClasse(classe){
+
+document.getElementById("tituloClasses").style.display = "none";
+
+document.getElementById("areaCards").style.display = "none";
+
+document.getElementById("telaFighters").classList.remove("oculto");
+
+}
