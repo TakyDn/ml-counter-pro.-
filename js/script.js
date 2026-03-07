@@ -47,8 +47,12 @@ card.style.display = "none";
 
 function voltarClasses(){
 
+document.getElementById("tituloClasses").style.display = "block";
+
+document.getElementById("areaCards").style.display = "flex";
+
 document.getElementById("telaFighters").classList.add("oculto");
 
-document.getElementById("telaHerois").classList.remove("oculto");
+document.getElementById("logoTopo").style.display = "block";
 
 }
