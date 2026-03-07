@@ -10,20 +10,20 @@ if(classe === "fighter"){
 
 area.innerHTML = `
 
-<h2>LUTADORES</h2>
+<h2>SOLDADOS</h2>
 
 <div class="card">
-<img src="freya-card.jpg">
+<img src="img-herois-cards/freya-card.jpg">
 <h3>Freya</h3>
 </div>
 
 <div class="card">
-<img src="phoveus-card.jpg">
+<img src="img-herois-cards/phoveus-card.jpg">
 <h3>Phoveus</h3>
 </div>
 
 <div class="card">
-<img src="badang-card.jpg">
+<img src="img-herois-cards/badang-card.jpg">
 <h3>Badang</h3>
 </div>
 
@@ -44,7 +44,7 @@ area.innerHTML = `
 
 <div class="classe-card" onclick="abrirClasse('fighter')">
 <img src="img-classes/fighter.png" class="classe-icon">
-<h3>LUTADOR</h3>
+<h3>SOLDADO</h3>
 </div>
 
 <div class="classe-card" onclick="abrirClasse('tank')">
