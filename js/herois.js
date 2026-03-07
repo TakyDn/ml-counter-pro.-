@@ -29,6 +29,8 @@ area.innerHTML = `
 
 `;
 
+ordenarHerois();
+  
 }
 
 }
@@ -74,5 +76,28 @@ area.innerHTML = `
 
 document.getElementById("tituloClasses").style.display = "block";
 document.getElementById("logoTopo").style.display = "block";
+
+}
+
+
+function ordenarHerois(){
+
+const area = document.getElementById("areaCards");
+
+const cards = Array.from(area.querySelectorAll(".card"));
+
+cards.sort((a,b)=>{
+
+const nomeA = a.querySelector("h3").innerText.toLowerCase();
+
+const nomeB = b.querySelector("h3").innerText.toLowerCase();
+
+return nomeA.localeCompare(nomeB);
+
+});
+
+area.innerHTML = "";
+
+cards.forEach(card => area.appendChild(card));
 
 }
