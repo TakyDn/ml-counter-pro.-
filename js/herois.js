@@ -28,4 +28,6 @@ document.getElementById("areaCards").style.display = "none";
 
 document.getElementById("telaFighters").classList.remove("oculto");
 
+document.getElementById("logoTopo").style.display = "none";
+
 }
