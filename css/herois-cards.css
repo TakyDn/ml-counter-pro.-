@@ -6,7 +6,9 @@ AREA DOS CARDS (HERÓIS)
 
 display:grid;
 
-grid-template-columns:repeat(5,1fr);
+grid-template-columns:repeat(5,150px);
+
+justify-content:center;
 
 gap:20px;
 
