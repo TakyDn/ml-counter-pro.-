@@ -27,6 +27,21 @@ area.innerHTML = `
 <h3>Badang</h3>
 </div>
 
+<div class="card">
+<img src="img-herois-cards/terizla-card.jpg">
+<h3>Terizla</h3>
+</div>
+
+<div class="card">
+<img src="img-herois-cards/chou-card.jpg">
+<h3>Chou</h3>
+</div>
+
+<div class="card">
+<img src="img-herois-cards/arlott-card.jpg">
+<h3>Arlott</h3>
+</div>
+
 `;
 
 ordenarHerois();
