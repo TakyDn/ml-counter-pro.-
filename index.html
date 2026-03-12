@@ -50,19 +50,26 @@ Vitórias exigem perspectiva.
 </section>
 
 
+<!-- ================================= -->
 <!-- MENU LATERAL -->
+<!-- ================================= -->
 
-<div class="menu-lateral" id="menuLateral">
+<nav class="menu-lateral" id="menuLateral">
 
-<button class="menu-fechar" onclick="fecharMenu()">✖</button>
+<button class="menu-fechar" onclick="fecharMenu()" aria-label="Fechar menu">✖</button>
 
-<a onclick="irInicio()">INÍCIO</a>
-<a>NOVIDADES</a>
-<a onclick="abrirHerois()">HERÓIS</a>
-<a>HERÓIS COUNTERS</a>
-<a>EQUIPAMENTOS</a>
-<a>SUPORTE</a>
+<a href="javascript:void(0)" onclick="irInicio(); fecharMenu();">INÍCIO</a>
 
-</div>
+<a href="javascript:void(0)" onclick="fecharMenu()">NOVIDADES</a>
+
+<a href="javascript:void(0)" onclick="abrirHerois(); fecharMenu();">HERÓIS</a>
+
+<a href="javascript:void(0)" onclick="fecharMenu()">HERÓIS COUNTERS</a>
+
+<a href="javascript:void(0)" onclick="fecharMenu()">EQUIPAMENTOS</a>
+
+<a href="javascript:void(0)" onclick="fecharMenu()">SUPORTE</a>
+
+</nav>
 
 <div class="overlay" id="overlay" onclick="fecharMenu()"></div>
